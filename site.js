@@ -7,33 +7,6 @@ function fillTable() {
     console.log(przewidywany_popyt, a)
 }
 
-function createInputsTable() {
-    var kontener = document.getElementById('tablearea');
-    kontener.innerHTML += `
-    <table id="GHPtable" style="border: 1px solid black; padding:30px">
-                                    <tr>
-                                        <th>tydzień</th>
-                                        <script>for (var i = 0; i < 11; i++) { document.write("<th>" + i + "</th>") }</script>
-                                    </tr>
-                                    <tr>
-                                        <td>Przewidywany popyt</td>
-                                        <script>for (var i = 0; i < 11; i++) { document.write("<td>" + "<input value =0 class='popyt'></input>" + "</td>") }</script>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Produkcja</td>
-                                        <script>for (var i = 0; i < 11; i++) { document.write("<td>" + "<input value=0></input>" + "</td>") }</script>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Dostępne</td>
-                                        <script>for (var i = 0; i < 11; i++) { document.write("<td>" + "<input value =0></input>" + "</td>") }</script>
-
-                                    </tr>
-                                </table>
-    `
-}
-
 function createCalculatedTable(title) {
     let container = document.getElementById("tables-container");
     container.innerHTML += `</table>
