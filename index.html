@@ -19,53 +19,52 @@
 
         <h1 itemprop="name" id="pageH1">Kalkulator MRP dla krzesła</h1>
 
-
         <div id="calculatorBlock">
-
-            <div itemscope itemtype="https://schema.org/SoftwareApplication">
-                <link itemprop="applicationCategory" href="https://schema.org/WebApplication" />
-                
-                
-              
-
-                
+            <div >
                 <div id="calculatorWrap">
                     <form action="tabelki.php" method="post" class="calculatorForm" id="CalculatorForm"
                         name="CalculatorForm" onsubmit="calculateButtonWorking()">
                         <div itemprop="name" class="calculatorTitle">Price Calculator</div>
                         <div class="calculatorInputs">
+
+
+                            <!-- tabela kalkulatora -->
                             <div id="tablearea">
-                                <table style="border: 1px solid black; padding:30px">
-                                    <tr> 
-                                      <th>tydzień</th>
-                                      <script>for(var i = 0; i<11; i++){document.write("<th>" + i + "</th>")}</script>
+                                
+                                <table id="GHPtable" style="border: 0px solid black;">
+                                    <tr>
+                                        <th>tydzień</th>
+                                        <script>for (var i = 0; i < 11; i++) { document.write("<th>" + i + "</th>") }</script>
                                     </tr>
                                     <tr>
-                                      <td>Przewidywany popyt</td>
-                                      <script>for(var i = 0; i<11; i++){document.write("<td>" + "<input value =0></input>" + "</td>")}</script>
-            
+                                        <td>Przewidywany popyt</td>
+                                        <script>for (var i = 0; i < 11; i++) { document.write("<td>" + "<input value =0 class='popyt'></input>" + "</td>") }</script>
+
                                     </tr>
                                     <tr>
-                                      <td>Produkcja</td>
-                                      <script>for(var i = 0; i<11; i++){document.write("<td>" + "<input value=0></input>" + "</td>")}</script>
-            
+                                        <td>Produkcja</td>
+                                        <script>for (var i = 0; i < 11; i++) { document.write("<td>" + "<input value=0></input>" + "</td>") }</script>
+
                                     </tr>
                                     <tr>
                                         <td>Dostępne</td>
-                                        <script>for(var i = 0; i<11; i++){document.write("<td>" + "<input value =0></input>" + "</td>")}</script>
-              
-                                      </tr>
-                                  </table>
-            
+                                        <script>for (var i = 0; i < 11; i++) { document.write("<td>" + "<input value =0></input>" + "</td>") }</script>
+
+                                    </tr>
+                                </table>
+
+
+
+
+                                <!-- inputy -->
                             </div>
-                            <div class="table commonTable">
+                            <div class="commonTable table">
                                 <div class="row">
                                     <div class="cell">
-                                        <label for="cost">Czas realizacji: (dni)</label>
+                                        <label>Czas realizacji: (dni)</label>
                                     </div>
                                     <div class="cell">
-                                        <input name="cost" id="cost" value="0" class="nmbr_real real" type="text"
-                                            title="real number" placeholder="ilość" required autofocus />
+                                        <input   value="0"  type="text" placeholder="ilość" required autofocus />
                                     </div>
                                 </div>
                                 <div class="row">
@@ -73,8 +72,7 @@
                                         <label for="margin">Wielkość partii:</label>
                                     </div>
                                     <div class="cell">
-                                        <input name="margin" id="margin" value="0" class="nmbr_real real"
-                                            type="text" title="real number" placeholder="ilość krzeseł w jednej partii produkcyjnej" required />
+                                        <input   value="0" type="text" placeholder="ilość krzeseł w jednej partii produkcyjnej"required />
                                     </div>
                                 </div>
                                 <div class="row">
@@ -82,167 +80,180 @@
                                         <label for="margin">Na stanie:</label>
                                     </div>
                                     <div class="cell">
-                                        <input name="margin" id="margin" value="0" class="nmbr_real real"
-                                            type="text" title="real number" placeholder="ilość" required />
+                                        <input  value="0"  type="text" placeholder="ilość" required />
                                     </div>
                                 </div>
                             </div>
                         </div>
-                
+
                         <div class="calculatorButton floatRight" id="actionCalculate">
-                            <input type="submit" value="Calculate" class="btn" name="calculateButton"
+                            <input onclick="fillTable()" value="Oblicz" class="btn" name="calculateButton"
                                 id="calculateButton">
                         </div>
                         <div class="calculatorButton floatLeft" id="actionClear">
-                            <input type="reset" name="reset" value="Clear" class="btn"
-                                onclick="return resetCalculator(this.form);">
+                            <input type="reset" name="reset" value="Wyczyść" class="btn"
+                                onclick="resetCalculator(this.form);">
                         </div>
                         <div class="clearBoth"></div>
-                        
+
                         <input type="hidden" name="action" value="solve" />
                         <input type="hidden" name="page_id" value="MTY0NzI4NTM0Nw==" />
                     </form>
 
-                    
+
+
                 </div>
 
             </div>
+            <div id="tables-container">
+                <script>document.addEventListener("DOMContentLoaded", function () {
+                        createCalculatedTable('krzesło');
+                        createCalculatedTable('przednie nogi');
+                        createCalculatedTable('tylny stelaż');
+                        createCalculatedTable('siedzenie');
 
-            
-        </div>
+                    });</script>
 
-       
-        <div id="contentBlock">
-            <div class="BlockMinWidth"></div>
-            
-            <h2 data-swiftype-index="false" class="firstH2" id="use">Wykorzystanie</h2>
-            <!-- InstanceBeginEditable name="content" -->
-            <p>Algorytm MRP łączy sporządzony harmonogram produkcji z
-                zestawieniem materiałów niezbędnych do wytworzenia
-                produktu, bada zapasy produkcyjne i ustala, które części i
-                surowce muszą być zamówione i w jakim czasie, aby jak
-                najkrócej były składowane w procesie wytwarzania.
-                <br><br>
-                Uwzględniając kiedy różne części produktu końcowego
-                mają być produkowane według harmonogramu oraz biorąc
-                pod uwagę konieczne okresy otrzymania materiałów, MRP
-                rozdziela w czasie zamówienia na uzupełnienie zapasów w
-                ten sposób, że części i materiały są dostępne w procesie
-                wytwarzania w momencie, kiedy są potrzebne na
-                stanowiskach roboczych.
-            </p>
-            <p>Ten kalkulator pozwala obliczyć harmonogram produkcji dla krzasła</p>
-            <h2>Elementy kalkulacji:</h2>
-            <ul>
-                <li>Całkowite zapotrzebowanie – pochodzi z GHP
 
-                    
-                </li>
-                <li>Przewidywane na stanie – wyliczane na koniec każdego okresu, na
-                    początku pochodzi z wielkości na stanie
-                    
-                </li>
-                <li>Planowane przyjęcia – pochodzi ze zleceń / zamówień już
-                    uruchomionych (produkcja, zamówienia zakupu)
-                    <ul><li>gdy uruchomione zalecenie produkcyjne, wtedy generuje zapotrzebowanie
-                        brutto na elementy niższego poziomu</li><li>zamówienia zakupu nie generują zapotrzebowania na elementy niższego
-                            poziomu</li></ul>
-                    
-                </li>
-                <li>Planowane przyjęcie zamówień – dotyczy zleceń / zamówień, które nie
-                    zostały jeszcze uruchomione
-                    
-                </li>
-                <li>Planowane przyjęcie zamówień (t) =
-                    Planowane zamówienia (t – Czas realizacji)</li>
-                 <li>Przewidywane na stanie (t) = Przewidywane na stanie (t-1) +
+
+
+
+
+
+            </div>
+
+            <script src="site.js"></script>
+
+
+
+            <div id="contentBlock">
+                <div class="BlockMinWidth"></div>
+
+                <h2 data-swiftype-index="false" class="firstH2" id="use">Wykorzystanie</h2>
+                <!-- InstanceBeginEditable name="content" -->
+                <p>Algorytm MRP łączy sporządzony harmonogram produkcji z
+                    zestawieniem materiałów niezbędnych do wytworzenia
+                    produktu, bada zapasy produkcyjne i ustala, które części i
+                    surowce muszą być zamówione i w jakim czasie, aby jak
+                    najkrócej były składowane w procesie wytwarzania.
+                    <br><br>
+                    Uwzględniając kiedy różne części produktu końcowego
+                    mają być produkowane według harmonogramu oraz biorąc
+                    pod uwagę konieczne okresy otrzymania materiałów, MRP
+                    rozdziela w czasie zamówienia na uzupełnienie zapasów w
+                    ten sposób, że części i materiały są dostępne w procesie
+                    wytwarzania w momencie, kiedy są potrzebne na
+                    stanowiskach roboczych.
+                </p>
+                <p>Ten kalkulator pozwala obliczyć harmonogram produkcji dla krzasła</p>
+                <h2>Elementy kalkulacji:</h2>
+                <ul>
+                    <li>Całkowite zapotrzebowanie – pochodzi z GHP
+
+
+                    </li>
+                    <li>Przewidywane na stanie – wyliczane na koniec każdego okresu, na
+                        początku pochodzi z wielkości na stanie
+
+                    </li>
+                    <li>Planowane przyjęcia – pochodzi ze zleceń / zamówień już
+                        uruchomionych (produkcja, zamówienia zakupu)
+                        <ul>
+                            <li>gdy uruchomione zalecenie produkcyjne, wtedy generuje zapotrzebowanie
+                                brutto na elementy niższego poziomu</li>
+                            <li>zamówienia zakupu nie generują zapotrzebowania na elementy niższego
+                                poziomu</li>
+                        </ul>
+
+                    </li>
+                    <li>Planowane przyjęcie zamówień – dotyczy zleceń / zamówień, które nie
+                        zostały jeszcze uruchomione
+
+                    </li>
+                    <li>Planowane przyjęcie zamówień (t) =
+                        Planowane zamówienia (t – Czas realizacji)</li>
+                    <li>Przewidywane na stanie (t) = Przewidywane na stanie (t-1) +
                         Planowane przyjęcia (t) + Planowane przyjęcie zamówień (t) –
                         Całkowite zapotrzebowanie (t)</li>
-            </ul>
-            <h2>Przykład kalkulacji</h2>
-            <p>1. Użyj GHP dla znalezienia potrzeb brutto pozycji z poziomu 0. <br>
-            2. Odejmij zapas, aby otrzymać potrzeby netto pozycji z poziomu 0 i
-                ustal czas rozpoczęcia produkcji, tak aby materiały mogły być
-                dostarczone na czas. <br>
-                3. Jeśli jest więcej poziomów materiałów, użyj zestawienia materiałów,
-                aby przekształcić potrzeby netto poziomu ostatniego na potrzeby
-                brutto poziomu następnego. Jeśli nie ma już więcej poziomów, można
-                przejść do etapu 5. <br>
-                 4. Przyjmij ilość materiałów do poziomu, a następnie:
+                </ul>
+                <h2>Przykład kalkulacji</h2>
+                <p>1. Użyj GHP dla znalezienia potrzeb brutto pozycji z poziomu 0. <br>
+                    2. Odejmij zapas, aby otrzymać potrzeby netto pozycji z poziomu 0 i
+                    ustal czas rozpoczęcia produkcji, tak aby materiały mogły być
+                    dostarczone na czas. <br>
+                    3. Jeśli jest więcej poziomów materiałów, użyj zestawienia materiałów,
+                    aby przekształcić potrzeby netto poziomu ostatniego na potrzeby
+                    brutto poziomu następnego. Jeśli nie ma już więcej poziomów, można
+                    przejść do etapu 5. <br>
+                    4. Przyjmij ilość materiałów do poziomu, a następnie:
                     odejmij zapas na składzie i zaplanowaną dostawę, aby znaleźć wielkość
-                materiałów do zamówienia,
+                    materiałów do zamówienia,
                     użyj czasu realizacji zamówienia i innych istotnych informacji, aby znaleźć
-                czas zamówienia.
-                 Wróć do kroku 3. <br>
-                 5. Jeśli już nie ma żadnych poziomów materiałów, zakończ procedurę.</p> <br>
-            <hr>
-            \[\text{hej} = \frac{\text{koszt}}{1 - \text{costam}}\] \[\text{elo} = \frac{125.00}{1 -
-            0.7500}\] \[\text{yo} = 1/2\]
-            takie wzorki ogolnie mozna powstawiac tesz wiesz o co chodzi 
-            <hr>
+                    czas zamówienia.
+                    Wróć do kroku 3. <br>
+                    5. Jeśli już nie ma żadnych poziomów materiałów, zakończ procedurę.</p> <br>
+                <hr>
+                \[\text{hej} = \frac{\text{koszt}}{1 - \text{costam}}\] \[\text{elo} = \frac{125.00}{1 -
+                0.7500}\] \[\text{yo} = 1/2\]
+                takie wzorki ogolnie mozna powstawiac tesz wiesz o co chodzi
+                <hr>
 
-            
 
-        </div>
-       
 
-        
-       
-    </footer>
- 
+            </div>
 
- 
 
-  
 
-    <!-- include mathjax file -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML"></script>
 
-    <script>
-        function resetCalculator(form) {
-            // clearing inputs
-            var inputs = form.getElementsByTagName('input');
-            for (var i = 0; i < inputs.length; i++) {
-                switch (inputs[i].type) {
-                    case 'number':
-                    case 'text':
-                        inputs[i].value = '';
-                        break;
-                    //case 'radio':
-                    case 'checkbox':
-                        inputs[i].checked = false;
+            </footer>
+
+
+
+
+
+
+            <!-- include mathjax file -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML"></script>
+
+            <script>
+                function resetCalculator(form) {
+                    // clearing inputs
+                    var inputs = form.getElementsByTagName('input');
+                    for (var i = 0; i < inputs.length; i++) {
+                        switch (inputs[i].type) {
+                            case 'number':
+                            case 'text':
+                                inputs[i].value = '';
+                                break;
+                            //case 'radio':
+                            case 'checkbox':
+                                inputs[i].checked = false;
+                        }
+                    }
+
+                    // clearing textarea
+                    var text = form.getElementsByTagName('textarea');
+                    for (var i = 0; i < text.length; i++) {
+                        text[i].innerHTML = '';
+                    }
+
+                    // must check if these are defined or this script breaks
+                    var getlink = document.getElementById('get_link');
+                    if (typeof (getlink) != 'undefined' && getlink != null) {
+                        // exists
+                        document.getElementById('get_link').innerHTML = '';
+                    }
+
+                    var CalcAns = document.getElementById('calculatorAnswer');
+                    if (typeof (CalcAns) != 'undefined' && CalcAns != null) {
+                        // exists
+                        document.getElementById('calculatorAnswer').innerHTML = 'Answer:<br><br>';
+                    }
+
+                    return false;
                 }
-            }
-
-            // clearing textarea
-            var text = form.getElementsByTagName('textarea');
-            for (var i = 0; i < text.length; i++) {
-                text[i].innerHTML = '';
-            }
-
-            // must check if these are defined or this script breaks
-            var getlink = document.getElementById('get_link');
-            if (typeof (getlink) != 'undefined' && getlink != null) {
-                // exists
-                document.getElementById('get_link').innerHTML = '';
-            }
-
-            var CalcAns = document.getElementById('calculatorAnswer');
-            if (typeof (CalcAns) != 'undefined' && CalcAns != null) {
-                // exists
-                document.getElementById('calculatorAnswer').innerHTML = 'Answer:<br><br>';
-            }
-
-            return false;
-        }
-    </script>
-    <script>
-        function calculateButtonWorking() {
-            calculateButton.disabled = true;
-            calculateButton.value = 'Working ...';
-            return true;
-        }
-    </script>
+            </script>
+         
 
 </body>
 

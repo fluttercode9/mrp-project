@@ -6,7 +6,7 @@ html {
 
 body {
     color: #000000;
-    background-color: #f0f0f0;
+    background-color: #a2a8a3;
     font-family: Arial, sans-serif;
     font-size: 100%;
     margin: 0;
@@ -26,8 +26,8 @@ body {
 div#wrapper {
     margin: 2px auto 2px auto;
     padding: 0px 0px 0px 0px;
-    border: 1px solid #b3b3b3;
-    background-color: #FFFFFF;
+    border: 1px solid #044124;
+    background-color: #bac7bf;
     max-width: 1100px;
     width: 100%;
 }
@@ -72,7 +72,14 @@ summary {
     height: 1px;
     overflow: hidden;
 }
-
+table, th, td {
+    border: 1px solid black;
+    background-color: #d2e6cf;
+    
+  }
+  th, td {
+      width: 500px;
+  }
 .skip a:focus {
     position: static;
     width: auto;
@@ -90,6 +97,9 @@ summary {
 
 td {
     padding: 0;
+}
+.unvisible{
+    visibility: hidden !important;
 }
 
 table {
@@ -222,10 +232,15 @@ strong {
 
 h1 {
     font-size: 1.4em;
+    text-align: center;
+    color: rgb(55, 105, 80);
+    
 }
 
 h2 {
     font-size: 1.2em;
+    text-align: center;
+    padding: 1%;
 }
 
 h3 {
@@ -334,7 +349,7 @@ textarea {
     color: inherit;
     font: inherit;
     margin: 0;
-    width: 100%;
+    width: 75%;
     padding: 10%;
 }
 table {
@@ -622,6 +637,7 @@ h1#pageH1 {
     display: inline-block;
     vertical-align: top;
     float: left;
+    background-color: #e6ede5;
     margin: 0px 20px 20px 0px;
     position: relative;
     z-index: 100;
@@ -841,14 +857,15 @@ CSS for ads end
 
 
 div#calculatorWrap {
-    background: #caeec1;
+    background: #cadfc5;
     padding: 0.5em 0.5em 0.5em 0.5em;
-    border: 4px solid rgb(150, 122, 228);
+    border: 4px solid rgb(7, 115, 34);
     border-radius: 4px;
     font-size: 0.9em;
 }
 
 form.calculatorForm {
+
 }
 
 div.calculatorTitle {
@@ -866,7 +883,7 @@ div.calculatorTitle {
 }
 
 div.calculatorInputs {
-    margin: 0.5em 0em 0.5em 0em;
+    display: inline-table;
 }
 
 div.calculatorInputGroup {
@@ -876,7 +893,7 @@ div.calculatorInputGroup {
 }
 
 div.calculatorInputGroupAligned {
-    text-align: left;
+    text-align: center;
     margin: auto;
     margin-top: 0.25em;
     margin-bottom: 0.5em;
@@ -930,8 +947,9 @@ div#calculatorAnswer {
 }
 
 div.table {
-    display: table;
+    display:inline-flex;
     border-collapse: collapse;
+    align-items: center;
 }
 
 div.caption {
@@ -947,6 +965,8 @@ div.cell {
 }
 
 div.commonTable {
+    text-align: left;
+   
 }
 
 div.commonTable div.cell {
@@ -969,6 +989,7 @@ fieldset div.commonTable {
 
 div.calculatorInputs div.commonTable .row .cell:first-child {
     text-align: right;
+    width: 49%;
 }
 
 div.defaultTable {
