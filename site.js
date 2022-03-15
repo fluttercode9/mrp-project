@@ -2,9 +2,15 @@ function fillTable() {
     GHPtable = document.getElementById("GHPtable");
     rows = GHPtable.rows;
     przewidywany_popyt = document.getElementsByClassName('popyt');
-    for (var a = [], i = przewidywany_popyt.length; i;) a[--i] = przewidywany_popyt[i].value;
+    produkcja = document.getElementsByClassName('produkcja');
+    dostepne = document.getElementsByClassName('dostepne');
+    for (var popyt_arr= [], i = przewidywany_popyt.length; i;) popyt_arr[--i] = przewidywany_popyt[i].value;
+    for (var produkcja_arr= [], i = przewidywany_popyt.length; i;) produkcja_arr[--i] = przewidywany_popyt[i].value;
+    for (var dostepne_arr= [], i = przewidywany_popyt.length; i;) dostepne_arr[--i] = przewidywany_popyt[i].value;
+    
 
-    console.log(przewidywany_popyt, a)
+
+    console.log(popyt_arr, produkcja_arr, dostepne_arr)
 }
 
 function createCalculatedTable(title) {
