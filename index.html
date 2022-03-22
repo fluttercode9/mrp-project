@@ -20,7 +20,7 @@
         <h1 itemprop="name" id="pageH1">Kalkulator MRP dla krzesła</h1>
 
         <div id="calculatorBlock">
-            <div >
+            <div>
                 <div id="calculatorWrap">
                     <form action="tabelki.php" method="post" class="calculatorForm" id="CalculatorForm"
                         name="CalculatorForm" onsubmit="calculateButtonWorking()">
@@ -30,26 +30,36 @@
 
                             <!-- tabela kalkulatora -->
                             <div id="tablearea">
-                                
+
                                 <table id="GHPtable" style="border: 0px solid black;">
                                     <tr>
                                         <th>tydzień</th>
-                                        <script>for (var i = 0; i < 11; i++) { document.write("<th>" + i + "</th>") }</script>
+                                        <script>for (var i = 1; i < 11; i++) { document.write("<th>" + i + "</th>") }</script>
                                     </tr>
                                     <tr>
                                         <td>Przewidywany popyt</td>
-                                        <script>for (var i = 0; i < 11; i++) { document.write("<td>" + "<input value =0 class='popyt'></input>" + "</td>") }</script>
+                                        <script>for (var i = 0; i < 10; i++) { document.write("<td>" + "<input type='number' value =0 class='popyt'></input>" + "</td>") }</script>
 
                                     </tr>
                                     <tr>
                                         <td>Produkcja</td>
-                                        <script>for (var i = 0; i < 11; i++) { document.write("<td>" + "<input class='produkcja' value=0></input>" + "</td>") }</script>
+                                        <script>for (var i = 0; i < 10; i++) { document.write("<td>" + "<input type='number' class='produkcja' value=0></input>" + "</td>") }</script>
 
                                     </tr>
                                     <tr>
                                         <td>Dostępne</td>
-                                        <script>for (var i = 0; i < 11; i++) { document.write("<td>" + "<input class ='dostepne' value =0></input>" + "</td>") }</script>
+                                        <script>for (var i = 0; i < 10; i++) { document.write("<td>" + "<input type='number' class ='dostepne' value =0></input>" + "</td>") }</script>
 
+                                    </tr>
+                                    <tr>
+                                        <td>Czas realizacji</td>
+                                        <td><input value="0" id="czasRealizacjiGHP" type="number" placeholder="ilość"
+                                                required autofocus /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Na stanie</td>
+                                        <td><input value="0" id="naStanieGHP" type="number" placeholder="ilość"
+                                                required /></td>
                                     </tr>
                                 </table>
 
@@ -58,33 +68,55 @@
 
                                 <!-- inputy -->
                             </div>
-                            <div class="commonTable table">
-                                <div class="row">
-                                    <div class="cell">
-                                        <label>Czas realizacji: (dni)</label>
-                                    </div>
-                                    <div class="cell">
-                                        <input   value="0"  type="text" placeholder="ilość" required autofocus />
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="cell">
-                                        <label for="margin">Wielkość partii:</label>
-                                    </div>
-                                    <div class="cell">
-                                        <input   value="0" type="text" placeholder="ilość krzeseł w jednej partii produkcyjnej"required />
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="cell">
-                                        <label for="margin">Na stanie:</label>
-                                    </div>
-                                    <div class="cell">
-                                        <input  value="0"  type="text" placeholder="ilość" required />
-                                    </div>
-                                </div>
+                            <div>
+
+
+                                <table>
+                                    <tr>
+                                        <td></td>
+                                        <td>Czas realizacji</td>
+                                        <td>Na stanie</td>
+                                        <td>Wielkość partii</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Przednie nogi</td>
+                                        <td><input type='number' id="czasRealizacjiPN" value=0 class='popyt'></td>
+                                        <td><input type='number' id="naStaniePN" value=0 class='popyt'></td>
+                                        <td><input type='number' id="wielkoscPartiiPN" value=0 class='popyt'></td>
+                                    </tr>
+                                    <tr>
+                                        <td>siedzenie</td>
+                                        <td><input type='number' value=0 class='popyt'></td>
+                                        <td><input type='number' value=0 class='popyt'></td>
+                                        <td><input type='number' value=0 class='popyt'></td>
+                                    </tr>
+                                    <tr>
+                                        <td>costam</td>
+                                        <td><input type='number' value=0 class='popyt'></td>
+                                        <td><input type='number' value=0 class='popyt'></td>
+                                        <td><input type='number' value=0 class='popyt'></td>
+                                    </tr>
+                                </table>
+
+
+
+
+
+
+
+
+
                             </div>
+
+
+
+
+
+
+
+
                         </div>
+
 
                         <div class="calculatorButton floatRight" id="actionCalculate">
                             <input onclick="fillTable()" value="Oblicz" class="btn" name="calculateButton"
@@ -99,20 +131,20 @@
                         <input type="hidden" name="action" value="solve" />
                         <input type="hidden" name="page_id" value="MTY0NzI4NTM0Nw==" />
                     </form>
-
-
-
                 </div>
 
-            </div>
-            <div id="tables-container">
-                <script>document.addEventListener("DOMContentLoaded", function () {
-                        createCalculatedTable('krzesło');
-                        createCalculatedTable('przednie nogi');
-                        createCalculatedTable('tylny stelaż');
-                        createCalculatedTable('siedzenie');
 
-                    });</script>
+
+                <div id="tables-container"></div>
+
+
+
+                <script>document.addEventListener("DOMContentLoaded", function () {
+                        createCalculatedTable('PN', 'Przednie nogi');
+                    });
+
+
+                </script>
 
 
 
@@ -195,7 +227,7 @@
                 <hr>
                 \[\text{cos} = \frac{\text{koszt}}{1 - \text{costam}}\] \[\text{cos tu bedzie} = \frac{125.00}{1 -
                 0.7500}\] \[\text{lorem ipsum} = 1/2\]
-                
+
                 <hr>
 
 
@@ -253,7 +285,7 @@
                     return false;
                 }
             </script>
-         
+        </div>
 
 </body>
 
