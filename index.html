@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <script src="tables.js"></script>
     <div id="wrapper">
 
         <h1 itemprop="name" id="pageH1">Kalkulator MRP dla krzesła</h1>
@@ -38,27 +39,27 @@
                                     </tr>
                                     <tr>
                                         <td>Przewidywany popyt</td>
-                                        <script>for (var i = 0; i < 10; i++) { document.write("<td>" + "<input type='number' value =0 class='popyt'></input>" + "</td>") }</script>
+                                        <script>for (var i = 0; i < 10; i++) { document.write("<td>" + "<input type='number' value =0 class='popytInput'></input>" + "</td>") }</script>
 
                                     </tr>
                                     <tr>
                                         <td>Produkcja</td>
-                                        <script>for (var i = 0; i < 10; i++) { document.write("<td>" + "<input type='number' class='produkcja' value=0></input>" + "</td>") }</script>
+                                        <script>for (var i = 0; i < 10; i++) { document.write("<td>" + "<input type='number' class='produkcjaInput' value=0></input>" + "</td>") }</script>
 
                                     </tr>
-                                    <tr>
+                                    <!-- <tr>
                                         <td>Dostępne</td>
-                                        <script>for (var i = 0; i < 10; i++) { document.write("<td>" + "<input type='number' class ='dostepne' value =0></input>" + "</td>") }</script>
+                                        <script>for (var i = 0; i < 10; i++) { document.write("<td>" + "<input type='number' class ='dostepneInput' value =0></input>" + "</td>") }</script>
 
-                                    </tr>
+                                    </tr> -->
                                     <tr>
                                         <td>Czas realizacji</td>
-                                        <td><input value="0" id="czasRealizacjiGHP" type="number" placeholder="ilość"
+                                        <td><input value="0" id="czasRealizacjiGHPinput" type="number" placeholder="ilość"
                                                 required autofocus /></td>
                                     </tr>
                                     <tr>
                                         <td>Na stanie</td>
-                                        <td><input value="0" id="naStanieGHP" type="number" placeholder="ilość"
+                                        <td><input value="0" id="naStanieGHPinput" type="number" placeholder="ilość"
                                                 required /></td>
                                     </tr>
                                 </table>
@@ -86,9 +87,9 @@
                                     </tr>
                                     <tr>
                                         <td>siedzenie</td>
-                                        <td><input type='number' value=0 class='popyt'></td>
-                                        <td><input type='number' value=0 class='popyt'></td>
-                                        <td><input type='number' value=0 class='popyt'></td>
+                                        <td><input type='number' id="czasRealizacjiSiedzenie" value=0 class='popyt'></td>
+                                        <td><input type='number' id="naStanieSiedzenie" value=0 class='popyt'></td>
+                                        <td><input type='number' id="wielkoscPartiiSiedzenie" value=0 class='popyt'></td>
                                     </tr>
                                     <tr>
                                         <td>costam</td>
@@ -134,13 +135,16 @@
                 </div>
 
 
-
+                <div id="GHPcontainer"></div>
                 <div id="tables-container"></div>
 
 
 
                 <script>document.addEventListener("DOMContentLoaded", function () {
                         createCalculatedTable('PN', 'Przednie nogi');
+                        createCalculatedTable('Siedzenie', 'Siedzenie');
+                        buildGHPtable();
+
                     });
 
 
@@ -153,7 +157,7 @@
 
 
             </div>
-
+            <script src="tables.js"></script>
             <script src="site.js"></script>
 
 
