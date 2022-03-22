@@ -6,11 +6,19 @@ html {
 
 body {
     color: #000000;
-    background-color: #a2a8a3;
+    background-image: url("https://thumbs.dreamstime.com/z/sketch-chair-icons-set-side-view-50187281.jpg");
     font-family: Arial, sans-serif;
     font-size: 100%;
     margin: 0;
     margin-bottom: 60px;
+    opacity: 0.97;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+
+
+
+
 }
 @media print {
     body {
@@ -24,22 +32,19 @@ body {
 }
 
 div#wrapper {
-    margin: 2px auto 2px auto;
+    margin: auto;
     padding: 0px 0px 0px 0px;
-    border: 1px solid #044124;
-    background-color: #bac7bf;
+    background-color: #e4f7eb;
     max-width: 1100px;
     width: 100%;
 }
 
 @media screen and (max-width: 600px) {
     div#wrapper {
-        margin: 0px auto 2px auto;
+        margin: auto;
     }
 
-    .gsc-clear-button {
-        margin-left: 16px;
-    }
+  
 
     div.sharelabel {
         margin-bottom: 10px;
@@ -127,14 +132,7 @@ a:active {
     color: #0000FF;
 }
 
-.buttonLink {
-    color: #0000FF;
-    background-color: transparent;
-    border: none;
-    text-decoration: underline;
-    cursor: pointer;
-    font-size: 0.9em;
-}
+
 
 .alignLeft {
     text-align: left;
@@ -278,7 +276,7 @@ ul li, ol li {
 
 dl {
     padding: 6px;
-    background-color: #f0f0f0;
+    background-color: #c48f8f;
     border: 1px solid #b3b3b3;
     border-radius: 4px;
     overflow: hidden;
@@ -349,8 +347,8 @@ textarea {
     color: inherit;
     font: inherit;
     margin: 0;
-    width: 75%;
-    padding: 10%;
+    width: 93%;
+    padding: 1%;
 }
 table {
     padding: 10px;
@@ -495,7 +493,7 @@ p#title span.topCalculator {
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.45em;
     color: #333333;
-    background-color: #ffffff;
+    background-color: #972323;
     font-weight: bold;
     text-shadow: 2px 2px #cccccc;
     line-height: normal;
@@ -644,6 +642,7 @@ h1#pageH1 {
 }
 
 div#contentBlock {
+    text-align: left;
 }
 
 div#contentBlock p:first-of-type {
@@ -784,49 +783,12 @@ CSS class for all in-page ads for the header ADVERTISEMENT
 /* Sticky CSS Code - Start -*/
 /* Use style for sticky ad */
     /* These IDs and Classes are set on divs by asc_prebid.js */
-#asc-ad-wrapper.sticky {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    z-index: 110;
-        background-color: #fff;
-        border-top: 2px solid #e5e5e5;
-}
 
-.asc-ad {
-    margin: 0 auto;
-    text-align: center;
-    position: relative;
-    display: inline-block;
-    width: auto;
-}
 
-.asc-ad > div {
-    display: inline-block;
-}
 
-#btn-ad-close {
-    position: absolute;
-    top: 0;
-    right: -30px;
-    width: 30px;
-    height: 30px;
-    padding: 0;
-    margin: 0;
-    margin-right: 2px;
-    border-radius: 25%;
-    background: #666;
-        border: 2px solid #e5e5e5;
-    color: #fff;
-    font-size: 1.4rem;
-    font-weight: 400;
-    line-height: 26px;
-    cursor: pointer;
-    text-align: center;
-    outline: none;
-}
+
+
+
 
 @media only screen and (max-width: 768px) {
     #btn-ad-close {
@@ -843,11 +805,7 @@ CSS class for all in-page ads for the header ADVERTISEMENT
             color: #747474;
     }
 }
-@media only screen and (min-width: 769px) {
-    #asc-ad-wrapper.sticky, .asc-ad, #btn-ad-close {
-        display: none;
-    }
-}
+
 
 /* Sticky Code - End */
 
@@ -859,9 +817,9 @@ CSS for ads end
 div#calculatorWrap {
     background: #cadfc5;
     padding: 0.5em 0.5em 0.5em 0.5em;
-    border: 4px solid rgb(7, 115, 34);
+    border: 3px solid rgb(7, 115, 34);
     border-radius: 4px;
-    font-size: 0.9em;
+    font-size: 1.2em;
 }
 
 form.calculatorForm {
@@ -923,7 +881,6 @@ div.calculatorInputGroupPadding {
 }
 
 div.calculatorButton {
-    margin: 0.5em 0em 0.5em 0em;
 }
 
 div.calculatorAnswer {
