@@ -5,10 +5,6 @@ var BOM = {
 }
 
 function fillTable() {
-    //console.log(przewidywany_popyt);
-    // GHPtable = document.getElementById("GHPtable");
-    // rows = GHPtable.rows;
-
     czasRealizacjiGHP = document.getElementById('czasRealizacjiGHPinput').value;
     przewidywany_popyt = document.getElementsByClassName('popytInput');
     produkcja = document.getElementsByClassName('produkcjaInput');
@@ -17,7 +13,6 @@ function fillTable() {
     for (var produkcja_arr = [], i = produkcja.length; i;) produkcja_arr[--i] = produkcja[i].value;
     for (var dostepne_arr = [], i = dostepne.length; i;) dostepne_arr[--i] = dostepne[i].value;
     naStanieGHP = document.getElementById('naStanieGHPinput').value;
-
 
     fillGHPtable();
     fillCalkowiteZapotrzebowanie('naStaniePN', 'czasRealizacjiPN', 'wielkoscPartiiPN', 'przednie nogi', '.calkowiteZapotrzebowaniePN', produkcja_arr, czasRealizacjiGHP);
@@ -65,21 +60,12 @@ function fillGHPtable() {
     let naStanieInputVal = document.getElementById('naStanieGHPinput').value;
     var naStanie = document.getElementById('naStanieGHPinput').value;
     console.log(naStanie);
-    // naStanie.innerHTML = naStanieInputVal;
-    // let czasRealizacjiInputVal = document.getElementById('czasRealizacjiGHPinput').value;
-    // var czasRealizacji = document.getElementById('czasRealizacjiGHP');
-    // naStanie.innerHTML = naStanieInputVal;
-    // czasRealizacji.innerHTML = czasRealizacjiInputVal;
-
-    //Dostepne
-
     var dostepneRow = document.querySelectorAll('.dostepne');
     for (var i = 0; i < dostepneRow.length; i++) {
         if (i == 0) {
             var counter = 0
             dostepneRow[i].innerHTML = parseInt(naStanie) - parseInt(GHPtablePopyt[i].innerHTML) + parseInt(GHPtableProdukcja[i].innerHTML);
         } else {
-
             dostepneRow[i].innerHTML = parseInt(dostepneRow[i - 1].innerHTML) - parseInt(GHPtablePopyt[i].innerHTML) + parseInt(GHPtableProdukcja[i].innerHTML);
         }
     }
