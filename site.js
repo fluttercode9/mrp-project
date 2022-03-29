@@ -71,3 +71,17 @@ function fillGHPtable() {
     }
 
 }
+
+
+// Uzupełnianie pól 'jedynkami'
+function fillExampleData() {
+    let all_inputs = document.querySelectorAll('input[type=number]');
+    all_inputs.forEach(function(input) {
+        if (!input.matches('#GHPtable > tbody > tr:nth-child(3) > td:nth-child(3) > input')){
+            input.value = 1;
+        }
+        
+    })
+}
+
+window.onload = fillExampleData()
