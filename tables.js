@@ -61,7 +61,7 @@ function createCalculatedTable(nazwa, tytul) {
             
         </tr>
         <tr>
-            <td>Przewidywane na stanie</td>
+            <td>Planowane przyjęcia</td>
             <td> </td> 
             <td> </td>
             <td> </td> 
@@ -76,7 +76,7 @@ function createCalculatedTable(nazwa, tytul) {
 
         </tr>
         <tr>
-            <td>Planowane przyjęcia</td>           
+            <td>Przewidywane na stanie</td>           
             <td> </td> 
             <td> </td>
             <td> </td> 
