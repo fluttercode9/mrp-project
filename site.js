@@ -21,13 +21,22 @@ function fillTable() {
     fillCalkowiteZapotrzebowanie('naStaniePN', 'czasRealizacjiSiedzenie', 'wielkoscPartiiSiedzenie', 'siedzenie',     '.calkowiteZapotrzebowanieSiedzenie', produkcja_arr, czasRealizacjiGHP);
     fillCalkowiteZapotrzebowanie('naStaniePN', 'czasRealizacjiTN',        'wielkoscPartiiTN',        'tylne nogi',     '.calkowiteZapotrzebowanieTylneNogi', produkcja_arr, czasRealizacjiGHP);
     fillCalkowiteZapotrzebowanie('naStaniePN', 'czasRealizacjiOparcie',   'wielkoscPartiiOparcie',   'oparcie',     '.calkowiteZapotrzebowanieOparcie', produkcja_arr, czasRealizacjiGHP);
-    fillNaStanie('naStaniePN', '.calkowiteZapotrzebowaniePN', '.przewidywaneNaStaniePN')
+    fillNaStanie(
+        'naStaniePN', 
+        'wielkoscPartiiPN',
+        '.calkowiteZapotrzebowaniePN',
+        '.planowanePrzyjeciaPN' ,
+        '.przewidywaneNaStaniePN', 
+        '.zapotrzebowanieNettoPN',
+        '.planowaneZamówieniaPN',
+        '.planowanePrzyjecieZamowienPN',
+        'czasRealizacjiPN')
 }
 
 // mysle ze o to chodzi w calkowitym zapotrzebowaniu ale nie wiem xD 
 function fillCalkowiteZapotrzebowanie(naStanieID, czasRealizacjiID, wielkoscPartiiID, BOMpart, MRProwClassName, produkcja_arr, czasRealizacjiGHP) {
 
-    naStanie = document.getElementById(naStanieID).value;
+    naStanie       = document.getElementById(naStanieID).value;
     czasRealizacji = document.getElementById(czasRealizacjiID).value;
     wielkoscPartii = document.getElementById(wielkoscPartiiID).value;
     var zapotrzebowanie = [];
@@ -50,19 +59,54 @@ function fillCalkowiteZapotrzebowanie(naStanieID, czasRealizacjiID, wielkoscPart
     }
 }
 
-function fillNaStanie(naStanieID, MRProwClassName, naStanieClassName) {
-    naStanie = document.getElementById(naStanieID);
+function fillNaStanie(
+    naStanieID,
+    wielkoscPartiiID,
+    MRProwClassName, 
+    planowanePrzyjecieClassName,
+    przewidywaneNaStanieClassName, 
+    ZapotrzebowanieNettoClassName,
+    PlanowanieZamowieniaClassName,
+    PlanowanePrzyjecieZamowienClassName,
+    czasRealizacjiID
+) {
+    naStanie                      = document.getElementById(naStanieID);
+    czasRealizacji = document.getElementById(czasRealizacjiID).value;
+    wielkoscPartii = document.getElementById(wielkoscPartiiID).value;
+
     rowCalkowitegoZapotrzebowania = document.querySelectorAll(MRProwClassName);
-    rowNaStanie = document.querySelectorAll(naStanieClassName);
+    rowPlanowanePrzyjecie         = document.querySelectorAll(planowanePrzyjecieClassName);
+    rowPrzewidywaneNaStanie       = document.querySelectorAll(przewidywaneNaStanieClassName);
+    rowZapotrzebowanieNetto       = document.querySelectorAll(ZapotrzebowanieNettoClassName);
+    rowPlanowanieZamowienia       = document.querySelectorAll(PlanowanieZamowieniaClassName);
+    rowPlanowanePrzyjecieZamowien = document.querySelectorAll(PlanowanePrzyjecieZamowienClassName);
+    
     first_run = 0
-    for (var i = 0; i < rowNaStanie.length; i++) {
+    for (var i = 0; i < rowPrzewidywaneNaStanie.length; i++) {
+        //Pierwszy tydzien
         if (first_run == 0) {
-            rowNaStanie[i].innerHTML = naStanie.value;
+            rowPrzewidywaneNaStanie[i].innerHTML = naStanie.value;
             first_run = 1;
-        } else {
-            rowNaStanie[i].innerHTML = rowNaStanie[i-1].innerHTML - rowCalkowitegoZapotrzebowania[i].innerHTML;
+            continue
+        } //Nastpene tygodnie
+        else {
+            rowPrzewidywaneNaStanie[i].innerHTML = rowPrzewidywaneNaStanie[i-1].innerHTML - rowCalkowitegoZapotrzebowania[i-1].innerHTML;
+            console.log(`iteracja: ${i}`)
+            console.log(`current_stan: ${rowPrzewidywaneNaStanie[i].innerHTML}`)
         }
+        if (rowPrzewidywaneNaStanie[i].innerHTML < 0) {
+            if (i >= czasRealizacji) {
+                ilosc_potrzebnych_partii = Math.ceil((rowPrzewidywaneNaStanie[i].innerHTML * -1)/wielkoscPartii);
+                console.log(`ilosc partii: ${ilosc_potrzebnych_partii}`);
+                rowPlanowanieZamowienia[i-1].innerHTML     = ilosc_potrzebnych_partii * wielkoscPartii;
+                rowPlanowanePrzyjecieZamowien[i].innerHTML = ilosc_potrzebnych_partii * wielkoscPartii;
+                // console.log(rowPlanowanePrzyjecieZamowien[i].innerHTML);
+                //rowPrzewidywaneNaStanie[i].innerHTML = rowPlanowanePrzyjecieZamowien[i-1].innerHTML;
+            }
+
+        }  
         
+      
     }
 
 
