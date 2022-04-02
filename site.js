@@ -1,7 +1,9 @@
-
+// To nie jest BOM, ale ok
 var BOM = {
     'przednie nogi': 2,
-    'siedzenie': 1
+    'siedzenie'    : 1,
+    'tylne nogi'   : 2,
+    'oparcie'      : 1
 }
 
 function fillTable() {
@@ -15,8 +17,10 @@ function fillTable() {
     naStanieGHP = document.getElementById('naStanieGHPinput').value;
 
     fillGHPtable();
-    fillCalkowiteZapotrzebowanie('naStaniePN', 'czasRealizacjiPN', 'wielkoscPartiiPN', 'przednie nogi', '.calkowiteZapotrzebowaniePN', produkcja_arr, czasRealizacjiGHP);
-    fillCalkowiteZapotrzebowanie('naStaniePN', 'czasRealizacjiSiedzenie', 'wielkoscPartiiSiedzenie', 'siedzenie', '.calkowiteZapotrzebowanieSiedzenie', produkcja_arr, czasRealizacjiGHP);
+    fillCalkowiteZapotrzebowanie('naStaniePN', 'czasRealizacjiPN',        'wielkoscPartiiPN',        'przednie nogi', '.calkowiteZapotrzebowaniePN', produkcja_arr, czasRealizacjiGHP);
+    fillCalkowiteZapotrzebowanie('naStaniePN', 'czasRealizacjiSiedzenie', 'wielkoscPartiiSiedzenie', 'siedzenie',     '.calkowiteZapotrzebowanieSiedzenie', produkcja_arr, czasRealizacjiGHP);
+    fillCalkowiteZapotrzebowanie('naStaniePN', 'czasRealizacjiTN',        'wielkoscPartiiTN',        'tylne nogi',     '.calkowiteZapotrzebowanieTylneNogi', produkcja_arr, czasRealizacjiGHP);
+    fillCalkowiteZapotrzebowanie('naStaniePN', 'czasRealizacjiOparcie',   'wielkoscPartiiOparcie',   'oparcie',     '.calkowiteZapotrzebowanieOparcie', produkcja_arr, czasRealizacjiGHP);
 
 }
 
@@ -45,6 +49,10 @@ function fillCalkowiteZapotrzebowanie(naStanieID, czasRealizacjiID, wielkoscPart
         }
     }
 }
+
+// fillNaStanie(){
+
+// }
 
 function fillGHPtable() {
     var przewidywany_popytGHPinputs = document.querySelectorAll('.popytInput');
