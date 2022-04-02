@@ -85,12 +85,22 @@ function fillNaStanie(
     for (var i = 0; i < rowPrzewidywaneNaStanie.length; i++) {
         //Pierwszy tydzien
         if (first_run == 0) {
+            rowPlanowanePrzyjecie[i].innerHTML = 0;
             rowPrzewidywaneNaStanie[i].innerHTML = naStanie.value;
+            //Zapotrzebowanie netto                 
+            if (Number(rowPrzewidywaneNaStanie[i].innerHTML) < Number(rowCalkowitegoZapotrzebowania[i].innerHTML)) {
+                rowZapotrzebowanieNetto[i].innerHTML = Math.abs(rowCalkowitegoZapotrzebowania[i].innerHTML - rowPrzewidywaneNaStanie[i].innerHTML);
+            } else (
+                rowZapotrzebowanieNetto[i].innerHTML = 0
+            )
+            
             first_run = 1;
             continue
         } //Nastpene tygodnie
         else {
-            rowPrzewidywaneNaStanie[i].innerHTML = rowPrzewidywaneNaStanie[i-1].innerHTML - rowCalkowitegoZapotrzebowania[i-1].innerHTML;
+            rowPlanowanePrzyjecie[i].innerHTML = 0;
+            //Sprawdzić:            
+            rowPrzewidywaneNaStanie[i].innerHTML = rowPrzewidywaneNaStanie[i-1].innerHTML - rowCalkowitegoZapotrzebowania[i-1].innerHTML //+ rowPlanowanePrzyjecie[i].innerHTML + rowZapotrzebowanieNetto[i-1].innerHTML;
             console.log(`iteracja: ${i}`)
             console.log(`current_stan: ${rowPrzewidywaneNaStanie[i].innerHTML}`)
         }
