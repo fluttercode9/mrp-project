@@ -21,7 +21,7 @@ function fillTable() {
     fillCalkowiteZapotrzebowanie('naStaniePN', 'czasRealizacjiSiedzenie', 'wielkoscPartiiSiedzenie', 'siedzenie',     '.calkowiteZapotrzebowanieSiedzenie', produkcja_arr, czasRealizacjiGHP);
     fillCalkowiteZapotrzebowanie('naStaniePN', 'czasRealizacjiTN',        'wielkoscPartiiTN',        'tylne nogi',     '.calkowiteZapotrzebowanieTylneNogi', produkcja_arr, czasRealizacjiGHP);
     fillCalkowiteZapotrzebowanie('naStaniePN', 'czasRealizacjiOparcie',   'wielkoscPartiiOparcie',   'oparcie',     '.calkowiteZapotrzebowanieOparcie', produkcja_arr, czasRealizacjiGHP);
-
+    fillNaStanie('naStaniePN', '.calkowiteZapotrzebowaniePN', '.przewidywaneNaStaniePN')
 }
 
 // mysle ze o to chodzi w calkowitym zapotrzebowaniu ale nie wiem xD 
@@ -50,9 +50,25 @@ function fillCalkowiteZapotrzebowanie(naStanieID, czasRealizacjiID, wielkoscPart
     }
 }
 
-// fillNaStanie(){
+function fillNaStanie(naStanieID, MRProwClassName, naStanieClassName) {
+    naStanie = document.getElementById(naStanieID);
+    rowCalkowitegoZapotrzebowania = document.querySelectorAll(MRProwClassName);
+    rowNaStanie = document.querySelectorAll(naStanieClassName);
+    first_run = 0
+    for (var i = 0; i < rowNaStanie.length; i++) {
+        if (first_run == 0) {
+            rowNaStanie[i].innerHTML = naStanie.value;
+            first_run = 1;
+        } else {
+            rowNaStanie[i].innerHTML = rowNaStanie[i-1].innerHTML - rowCalkowitegoZapotrzebowania[i].innerHTML;
+        }
+        
+    }
 
-// }
+
+
+
+}
 
 function fillGHPtable() {
     var przewidywany_popytGHPinputs = document.querySelectorAll('.popytInput');
