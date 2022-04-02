@@ -62,73 +62,73 @@ function createCalculatedTable(nazwa, tytul) {
         </tr>
         <tr>
             <td>Planowane przyjęcia</td>
-            <td> </td> 
-            <td> </td>
-            <td> </td> 
-            <td> </td>
-            <td> </td> 
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
+            <td class = 'planowanePrzyjecia${nazwa}'> </td> 
+            <td class = 'planowanePrzyjecia${nazwa}'> </td>
+            <td class = 'planowanePrzyjecia${nazwa}'> </td> 
+            <td class = 'planowanePrzyjecia${nazwa}'> </td>
+            <td class = 'planowanePrzyjecia${nazwa}'> </td> 
+            <td class = 'planowanePrzyjecia${nazwa}'> </td>
+            <td class = 'planowanePrzyjecia${nazwa}'> </td>
+            <td class = 'planowanePrzyjecia${nazwa}'> </td>
+            <td class = 'planowanePrzyjecia${nazwa}'> </td>
+            <td class = 'planowanePrzyjecia${nazwa}'> </td>
             
 
         </tr>
         <tr>
             <td>Przewidywane na stanie</td>           
-            <td> </td> 
-            <td> </td>
-            <td> </td> 
-            <td> </td>
-            <td> </td> 
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
+            <td class = 'przewidywaneNaStanie${nazwa}'> </td> 
+            <td class = 'przewidywaneNaStanie${nazwa}'> </td>
+            <td class = 'przewidywaneNaStanie${nazwa}'> </td> 
+            <td class = 'przewidywaneNaStanie${nazwa}'> </td>
+            <td class = 'przewidywaneNaStanie${nazwa}'> </td> 
+            <td class = 'przewidywaneNaStanie${nazwa}'> </td>
+            <td class = 'przewidywaneNaStanie${nazwa}'> </td>
+            <td class = 'przewidywaneNaStanie${nazwa}'> </td>
+            <td class = 'przewidywaneNaStanie${nazwa}'> </td>
+            <td class = 'przewidywaneNaStanie${nazwa}'> </td>
             
         </tr>
         <tr>
             <td>Zapotrzebowanie netto</td>
-            <td> </td> 
-            <td> </td>
-            <td> </td> 
-            <td> </td>
-            <td> </td> 
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
+            <td class = 'zapotrzebowanieNetto${nazwa}'> </td> 
+            <td class = 'zapotrzebowanieNetto${nazwa}'> </td>
+            <td class = 'zapotrzebowanieNetto${nazwa}'> </td> 
+            <td class = 'zapotrzebowanieNetto${nazwa}'> </td>
+            <td class = 'zapotrzebowanieNetto${nazwa}'> </td> 
+            <td class = 'zapotrzebowanieNetto${nazwa}'> </td>
+            <td class = 'zapotrzebowanieNetto${nazwa}'> </td>
+            <td class = 'zapotrzebowanieNetto${nazwa}'> </td>
+            <td class = 'zapotrzebowanieNetto${nazwa}'> </td>
+            <td class = 'zapotrzebowanieNetto${nazwa}'> </td>
             
         </tr>
         <tr>
             <td>Planowane zamówienia</td>
-            <td> </td>
-            <td> </td>
-            <td> </td> 
-            <td> </td>
-            <td> </td> 
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
+            <td class = 'planowaneZamówienia${nazwa}'> </td>
+            <td class = 'planowaneZamówienia${nazwa}'> </td>
+            <td class = 'planowaneZamówienia${nazwa}'> </td> 
+            <td class = 'planowaneZamówienia${nazwa}'> </td>
+            <td class = 'planowaneZamówienia${nazwa}'> </td> 
+            <td class = 'planowaneZamówienia${nazwa}'> </td>
+            <td class = 'planowaneZamówienia${nazwa}'> </td>
+            <td class = 'planowaneZamówienia${nazwa}'> </td>
+            <td class = 'planowaneZamówienia${nazwa}'> </td>
+            <td class = 'planowaneZamówienia${nazwa}'> </td>
             
         </tr>
         <tr>
             <td>Planowane przyjęcie zamówień</td>
-            <td> </td> 
-            <td> </td>
-            <td> </td> 
-            <td> </td>
-            <td> </td> 
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
+            <td class = 'planowanePrzyjecieZamowien${nazwa}'> </td> 
+            <td class = 'planowanePrzyjecieZamowien${nazwa}'> </td>
+            <td class = 'planowanePrzyjecieZamowien${nazwa}'> </td> 
+            <td class = 'planowanePrzyjecieZamowien${nazwa}'> </td>
+            <td class = 'planowanePrzyjecieZamowien${nazwa}'> </td> 
+            <td class = 'planowanePrzyjecieZamowien${nazwa}'> </td>
+            <td class = 'planowanePrzyjecieZamowien${nazwa}'> </td>
+            <td class = 'planowanePrzyjecieZamowien${nazwa}'> </td>
+            <td class = 'planowanePrzyjecieZamowien${nazwa}'> </td>
+            <td class = 'planowanePrzyjecieZamowien${nazwa}'> </td>
             
         </tr>
 
