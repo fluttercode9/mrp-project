@@ -4,10 +4,16 @@ var BOM = {
     'siedzenie': 1,
     'tylny stelaz': 1,
     'oparcie': 1,
-    'tylne nogi': 2
+    'tylne nogi': 1
 }
 
 function fillTable() {
+    var tablefields = document.getElementsByClassName('c');
+    for (var i = 0; i < tablefields.length; i++) {
+        tablefields[i].innerHTML = ''
+    }
+
+
     czasRealizacjiGHP = document.getElementById('czasRealizacjiGHPinput').value;
     przewidywany_popyt = document.getElementsByClassName('popytInput');
     produkcja = document.getElementsByClassName('produkcjaInput');
@@ -18,11 +24,11 @@ function fillTable() {
     naStanieGHP = document.getElementById('naStanieGHPinput').value;
 
     fillGHPtable();
-    fillCalkowiteZapotrzebowanie1('naStaniePN', 'czasRealizacjiPN', 'wielkoscPartiiPN', 'przednie nogi', '.calkowiteZapotrzebowaniePN', produkcja_arr, czasRealizacjiGHP);
-    fillCalkowiteZapotrzebowanie1('naStanieSiedzenie', 'czasRealizacjiSiedzenie', 'wielkoscPartiiSiedzenie', 'siedzenie', '.calkowiteZapotrzebowanieSiedzenie', produkcja_arr, czasRealizacjiGHP);
-    fillCalkowiteZapotrzebowanie1('naStanieTylnyStelaz', 'czasRealizacjiTylnyStelaz', 'wielkoscPartiiTylnyStelaz', 'tylny stelaz', '.calkowiteZapotrzebowanieTylnyStelaz', produkcja_arr, czasRealizacjiGHP);
-    fillCalkowiteZapotrzebowanie1('naStanieOparcie', 'czasRealizacjiOparcie', 'wielkoscPartiiOparcie', 'oparcie', '.calkowiteZapotrzebowanieOparcie', produkcja_arr, czasRealizacjiGHP);
-    fillCalkowiteZapotrzebowanie1('naStanieTylneNogi', 'czasRealizacjiTylneNogi', 'wielkoscPartiiTylneNogi', 'tylne nogi', '.calkowiteZapotrzebowanieTylneNogi', produkcja_arr, czasRealizacjiGHP);
+    fillCalkowiteZapotrzebowanie('naStaniePN', 'czasRealizacjiPN', 'wielkoscPartiiPN', 'przednie nogi', '.calkowiteZapotrzebowaniePN', produkcja_arr, czasRealizacjiGHP);
+    fillCalkowiteZapotrzebowanie('naStanieSiedzenie', 'czasRealizacjiSiedzenie', 'wielkoscPartiiSiedzenie', 'siedzenie', '.calkowiteZapotrzebowanieSiedzenie', produkcja_arr, czasRealizacjiGHP);
+    fillCalkowiteZapotrzebowanie('naStanieTylnyStelaz', 'czasRealizacjiTylnyStelaz', 'wielkoscPartiiTylnyStelaz', 'tylny stelaz', '.calkowiteZapotrzebowanieTylnyStelaz', produkcja_arr, czasRealizacjiGHP);
+    fillCalkowiteZapotrzebowanie('naStanieOparcie', 'czasRealizacjiOparcie', 'wielkoscPartiiOparcie', 'oparcie', '.calkowiteZapotrzebowanieOparcie', produkcja_arr, czasRealizacjiGHP, 2);
+    fillCalkowiteZapotrzebowanie('naStanieTylneNogi', 'czasRealizacjiTylneNogi', 'wielkoscPartiiTylneNogi', 'tylne nogi', '.calkowiteZapotrzebowanieTylneNogi', produkcja_arr, czasRealizacjiGHP, 2);
     fillNaStanie(
         'naStaniePN',
         'wielkoscPartiiPN',
@@ -36,7 +42,7 @@ function fillTable() {
 }
 
 // mysle ze o to chodzi w calkowitym zapotrzebowaniu ale nie wiem xD 
-function fillCalkowiteZapotrzebowanie1(naStanieID, czasRealizacjiID, wielkoscPartiiID, BOMpart, MRProwClassName, produkcja_arr, czasRealizacjiGHP) {
+function fillCalkowiteZapotrzebowanie(naStanieID, czasRealizacjiID, wielkoscPartiiID, BOMpart, MRProwClassName, produkcja_arr, czasRealizacjiGHP, bomlvl = 1) {
 
     naStanie = document.getElementById(naStanieID).value;
     czasRealizacji = document.getElementById(czasRealizacjiID).value;
@@ -91,7 +97,7 @@ function fillNaStanie(
         if (first_run == 0) {
             rowPlanowanePrzyjecie[i].innerHTML = 0;
             rowPrzewidywaneNaStanie[i].innerHTML = parseInt(naStanie) - parseInt(rowCalkowitegoZapotrzebowania[i].innerHTML);
-            console.log(parseInt(naStanie) );
+            console.log(parseInt(naStanie));
             //Zapotrzebowanie netto                 
             //if (Number(rowPrzewidywaneNaStanie[i].innerHTML) < Number(rowCalkowitegoZapotrzebowania[i].innerHTML)) {
             //    rowZapotrzebowanieNetto[i].innerHTML = Math.abs(rowCalkowitegoZapotrzebowania[i].innerHTML - rowPrzewidywaneNaStanie[i].innerHTML);
@@ -132,6 +138,7 @@ function fillNaStanie(
 
 }
 
+
 function fillGHPtable() {
     var przewidywany_popytGHPinputs = document.querySelectorAll('.popytInput');
     var GHPtablePopyt = document.querySelectorAll('.przewidywanyPopyt');
@@ -164,6 +171,15 @@ function fillGHPtable() {
 
 
 // Uzupełnianie pól 'jedynkami'
+function fillExampleData() {
+    let all_inputs = document.querySelectorAll('input[type=number]');
+    all_inputs.forEach(function (input) {
+        if (!input.matches('#GHPtable > tbody > tr:nth-child(3) > td:nth-child(3) > input')) {
+            input.value = 1;
+        }
+
+    })
+}
 function fillExampleData() {
     let all_inputs = document.querySelectorAll('input[type=number]');
     all_inputs.forEach(function (input) {

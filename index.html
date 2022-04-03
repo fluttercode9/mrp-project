@@ -269,6 +269,7 @@
             <script>
                 function resetCalculator(form) {
                     // clearing inputs
+                    var tablefields = document.getElementsByClassName('c');
                     var inputs = form.getElementsByTagName('td');
                     for (var i = 0; i < inputs.length; i++) {
                         switch (inputs[i].type) {
@@ -279,6 +280,9 @@
                             //case 'radio':
                             case 'checkbox':
                                 inputs[i].checked = false;
+                        }
+                    for (var i = 0; i < tablefields.length; i++) {
+                        tablefields[i].innerHTML = ''
                         }
                     }
 
