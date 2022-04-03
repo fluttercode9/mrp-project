@@ -92,10 +92,16 @@
                                         <td><input type='number' id="wielkoscPartiiSiedzenie" value=0 class='popyt'></td>
                                     </tr>
                                     <tr>
+                                        <td>Tylny Stelaż</td>
+                                        <td><input type='number' id="czasRealizacjiTylnyStelaz" value=0 class='popyt'></td>
+                                        <td><input type='number' id="naStanieTylnyStelaz" value=0 class='popyt'></td>
+                                        <td><input type='number' id="wielkoscPartiiTylnyStelaz" value=0 class='popyt'></td>
+                                    </tr>
+                                    <tr>
                                         <td>Tylne nogi</td>
-                                        <td><input type='number' id="czasRealizacjiTN" value=0 class='popyt'></td>
-                                        <td><input type='number' id="naStanieTN" value=0 class='popyt'></td>
-                                        <td><input type='number' id="wielkoscPartiiTN" value=0 class='popyt'></td>
+                                        <td><input type='number' id="czasRealizacjiTylneNogi" value=0 class='popyt'></td>
+                                        <td><input type='number' id="naStanieTylneNogi" value=0 class='popyt'></td>
+                                        <td><input type='number' id="wielkoscPartiiTylneNogi" value=0 class='popyt'></td>
                                     </tr>
                                     <tr>
                                         <td>Oparcie</td>
@@ -149,8 +155,9 @@
                 <script>document.addEventListener("DOMContentLoaded", function () {
                         createCalculatedTable('PN', 'Przednie nogi');
                         createCalculatedTable('Siedzenie', 'Siedzenie');
-                        createCalculatedTable('TylneNogi', 'Tylne Nogi');
-                        createCalculatedTable('Oparcie', 'Oparcie');
+                        createCalculatedTable('TylnyStelaz', 'Tylny Stelaż');
+                        createCalculatedTable('TylneNogi', 'Tylne nogi(Tylny Stelaż)');
+                        createCalculatedTable('Oparcie', 'Oparcie(Tylny Stelaż)');
                         buildGHPtable();
 
                     });
