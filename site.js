@@ -145,10 +145,16 @@ function fillGHPtable() {
     var dostepneRow = document.querySelectorAll('.dostepne');
     for (var i = 0; i < dostepneRow.length; i++) {
         if (i == 0) {
-            var counter = 0
             dostepneRow[i].innerHTML = parseInt(naStanie) - parseInt(GHPtablePopyt[i].innerHTML) + parseInt(GHPtableProdukcja[i].innerHTML);
         } else {
             dostepneRow[i].innerHTML = parseInt(dostepneRow[i - 1].innerHTML) - parseInt(GHPtablePopyt[i].innerHTML) + parseInt(GHPtableProdukcja[i].innerHTML);
+            if (dostepneRow[i].innerHTML<0){
+                var doprodukowac = Math.abs(dostepneRow[i].innerHTML);
+                dostepneRow[i].innerHTML = 0;
+                GHPtableProdukcja[i].innerHTML+=doprodukowac;
+
+
+            }
         }
     }
 
