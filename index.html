@@ -25,7 +25,6 @@
                 <div id="calculatorWrap">
                     <form action="tabelki.php" method="post" class="calculatorForm" id="CalculatorForm"
                         name="CalculatorForm" onsubmit="calculateButtonWorking()">
-                        <div itemprop="name" class="calculatorTitle">Kalkulator</div>
                         <div class="calculatorInputs">
 
 
@@ -131,12 +130,12 @@
                         </div>
 
 
-                        <div class="calculatorButton floatRight" id="actionCalculate">
-                            <input onclick="fillTable()" value="Oblicz" class="btn" name="calculateButton"
+                        <div class="floatRight" id="actionCalculate">
+                            <input onclick="fillTable()" type="button" value="Oblicz" class="btn" name="calculateButton"
                                 id="calculateButton">
                         </div>
-                        <div class="calculatorButton floatLeft" id="actionClear">
-                            <input type="reset" name="reset" value="Wyczyść" class="btn"
+                        <div class="floatLeft" id="actionClear">
+                            <input type="button" name="reset" value="Wyczyść" class="btn"
                                 onclick="resetCalculator(this.form);">
                         </div>
                         <div class="clearBoth"></div>
@@ -178,76 +177,7 @@
 
 
             <div id="contentBlock">
-                <div class="BlockMinWidth"></div>
-
-                <h2 data-swiftype-index="false" class="firstH2" id="use">Wykorzystanie</h2>
-                <!-- InstanceBeginEditable name="content" -->
-                <p>Algorytm MRP łączy sporządzony harmonogram produkcji z
-                    zestawieniem materiałów niezbędnych do wytworzenia
-                    produktu, bada zapasy produkcyjne i ustala, które części i
-                    surowce muszą być zamówione i w jakim czasie, aby jak
-                    najkrócej były składowane w procesie wytwarzania.
-                    <br><br>
-                    Uwzględniając kiedy różne części produktu końcowego
-                    mają być produkowane według harmonogramu oraz biorąc
-                    pod uwagę konieczne okresy otrzymania materiałów, MRP
-                    rozdziela w czasie zamówienia na uzupełnienie zapasów w
-                    ten sposób, że części i materiały są dostępne w procesie
-                    wytwarzania w momencie, kiedy są potrzebne na
-                    stanowiskach roboczych.
-                </p>
-                <p>Ten kalkulator pozwala obliczyć harmonogram produkcji dla krzasła</p>
-                <h2>Elementy kalkulacji:</h2>
-                <ul>
-                    <li>Całkowite zapotrzebowanie – pochodzi z GHP
-
-
-                    </li>
-                    <li>Przewidywane na stanie – wyliczane na koniec każdego okresu, na
-                        początku pochodzi z wielkości na stanie
-
-                    </li>
-                    <li>Planowane przyjęcia – pochodzi ze zleceń / zamówień już
-                        uruchomionych (produkcja, zamówienia zakupu)
-                        <ul>
-                            <li>gdy uruchomione zalecenie produkcyjne, wtedy generuje zapotrzebowanie
-                                brutto na elementy niższego poziomu</li>
-                            <li>zamówienia zakupu nie generują zapotrzebowania na elementy niższego
-                                poziomu</li>
-                        </ul>
-
-                    </li>
-                    <li>Planowane przyjęcie zamówień – dotyczy zleceń / zamówień, które nie
-                        zostały jeszcze uruchomione
-
-                    </li>
-                    <li>Planowane przyjęcie zamówień (t) =
-                        Planowane zamówienia (t – Czas realizacji)</li>
-                    <li>Przewidywane na stanie (t) = Przewidywane na stanie (t-1) +
-                        Planowane przyjęcia (t) + Planowane przyjęcie zamówień (t) –
-                        Całkowite zapotrzebowanie (t)</li>
-                </ul>
-                <h2>Przykład kalkulacji</h2>
-                <p>1. Użyj GHP dla znalezienia potrzeb brutto pozycji z poziomu 0. <br>
-                    2. Odejmij zapas, aby otrzymać potrzeby netto pozycji z poziomu 0 i
-                    ustal czas rozpoczęcia produkcji, tak aby materiały mogły być
-                    dostarczone na czas. <br>
-                    3. Jeśli jest więcej poziomów materiałów, użyj zestawienia materiałów,
-                    aby przekształcić potrzeby netto poziomu ostatniego na potrzeby
-                    brutto poziomu następnego. Jeśli nie ma już więcej poziomów, można
-                    przejść do etapu 5. <br>
-                    4. Przyjmij ilość materiałów do poziomu, a następnie:
-                    odejmij zapas na składzie i zaplanowaną dostawę, aby znaleźć wielkość
-                    materiałów do zamówienia,
-                    użyj czasu realizacji zamówienia i innych istotnych informacji, aby znaleźć
-                    czas zamówienia.
-                    Wróć do kroku 3. <br>
-                    5. Jeśli już nie ma żadnych poziomów materiałów, zakończ procedurę.</p> <br>
-                <hr>
-                \[\text{cos} = \frac{\text{koszt}}{1 - \text{costam}}\] \[\text{cos tu bedzie} = \frac{125.00}{1 -
-                0.7500}\] \[\text{lorem ipsum} = 1/2\]
-
-                <hr>
+                
 
 
 

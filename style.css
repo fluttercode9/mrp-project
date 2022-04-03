@@ -6,8 +6,9 @@ html {
 
 body {
     color: #000000;
-    background-image: url("https://thumbs.dreamstime.com/z/sketch-chair-icons-set-side-view-50187281.jpg");
+    /* background-image: url("https://thumbs.dreamstime.com/z/sketch-chair-icons-set-side-view-50187281.jpg"); */
     font-family: Arial, sans-serif;
+    background-color: rgb(227, 227, 227);
     font-size: 100%;
     margin: 0;
     margin-bottom: 60px;
@@ -33,10 +34,10 @@ body {
 
 div#wrapper {
     margin: auto;
-    padding: 0px 0px 0px 0px;
-    background-color: #e4f7eb;
-    max-width: 1100px;
-    width: 100%;
+    /* /* padding: 0px 0px 0px 0px; */
+    max-width: 1500px;
+    width:80%
+
 }
 
 @media screen and (max-width: 600px) {
@@ -78,10 +79,23 @@ summary {
     overflow: hidden;
 }
 table, th, td {
-    border: 1px solid black;
+    border: 9px solid rgb(255, 255, 255);
     background-color: #d2e6cf;
+    border-collapse: collapse;
     
   }
+tr , td{
+    height: 50px;
+    font-size: larger;
+    transition: 0.8s;
+}
+
+td:hover{
+    background-color: #86b686;
+    color: white;
+    font-size: 1.2em;
+    padding: 8px;
+}
   th, td {
       width: 500px;
   }
@@ -229,9 +243,9 @@ strong {
 }
 
 h1 {
-    font-size: 1.4em;
+    font-size: xx-large;
     text-align: center;
-    color: rgb(55, 105, 80);
+    color: rgb(9, 56, 32);
     
 }
 
@@ -348,6 +362,7 @@ textarea {
     font: inherit;
     margin: 0;
     width: 93%;
+    height: 90%;
     padding: 1%;
 }
 table {
@@ -384,6 +399,7 @@ input::-moz-focus-inner {
 
 input {
     line-height: normal;
+    text-align: center;
 }
 
 input[type="checkbox"],
@@ -439,45 +455,7 @@ header {
     vertical-align: top;
     width: 200px;
 }
-/*
-Search Box Swiftype
 
- */
-/* copied from swiftype so css is present immediately and no flicker of search box occurs */
-/* could not get magnifying glass to work so just let swiftype put it in when js loads */
-.st-default-search-input, .st-ui-search-input {
-    display: inline-block;
-    width: 190px;
-    height: 16px;
-    padding: 7px 11px 7px 28px;
-    border: 1px solid #bbb;
-    font-weight: 400;
-    color: #3B454F;
-    font-size: 14px;
-    line-height: 16px;
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-    /* background: #fff 8px 8px no-repeat url("https://www.calculatorsoup.com/images/search/magnify.png"); */
-    -moz-background-clip: padding-box;
-    background-clip: padding-box;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    font-family: system, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Lucida Grande", sans-serif;
-}
-#search {
-    max-width: 350px;
-    text-align: center;
-    margin: auto;
-}
-
-#calculatorlogo {
-    float: left;
-}
 
 p#title {
     margin: 0px 2px 0px 2px;
@@ -510,77 +488,9 @@ p#title span.topCalculator {
     line-height: normal;
 } */
 
-div#titleSmall {
-    margin: 12px 4px 0px 4px;
-    font-size: 80%;
-}
 
-div#titleSmall a {
-    text-decoration: none;
-}
 
-div#titleSmall span.calculator {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1.2em;
-    color: #333333;
-    background-color: inherit;
-    font-weight: bold;
-}
 
-div#titleSmall span.soup {
-    font-family: Verdana, Arial, sans-serif;
-    font-size: 1.1em;
-    color: #bd362f;
-    background-color: inherit;
-    font-weight: bold;
-    margin-left: -3px;
-}
-
-p.tag {
-    color: #666666;
-    background-color: #ffffff;
-    font-size: 0.9em;
-    font-weight: bold;
-    margin: 0px 2px 2px 2px;
-}
-
-p.tag a {
-    color: #666666;
-    background-color: #ffffff;
-    text-decoration: none;
-}
-
-#topNavRight {
-    font-size: 0.85em;
-    vertical-align: top;
-    __background-color: #333;
-}
-
-#topFollow {
-    font-size: 0.80em;
-    color: #666;
-    font-style: italic;
-    margin-top: 8px;
-}
-
-img.followButton {
-}
-
-.socialButton {
-    display: inline-block;
-    margin: 0;
-    margin-top: 4px;
-}
-
-.shareContainerLarge {
-    display: block;
-    width: 320px;
-    text-align: center;
-    margin-bottom: 20px;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 @media (min-width: 925px) {
     img.followButton, img.shareButton {
@@ -634,6 +544,7 @@ h1#pageH1 {
 #calculatorBlock {
     display: inline-block;
     vertical-align: top;
+    text-align: center;
     float: left;
     background-color: #e6ede5;
     margin: 0px 20px 20px 0px;
@@ -817,9 +728,10 @@ CSS for ads end
 div#calculatorWrap {
     background: #cadfc5;
     padding: 0.5em 0.5em 0.5em 0.5em;
-    border: 3px solid rgb(7, 115, 34);
+    border: 7px solid rgb(20, 149, 29);
     border-radius: 4px;
     font-size: 1.2em;
+    text-align: center;
 }
 
 form.calculatorForm {
@@ -827,11 +739,11 @@ form.calculatorForm {
 }
 
 div.calculatorTitle {
-    color: #fff;
-    background-color: #0d660d;
+    color: rgb(176, 230, 188);
+    background-color: #ffffff;
     font-weight: bold;
     margin: -0.3em -0.3em 1em -0.3em;
-    border-bottom: 1px solid #aaa;
+    border-bottom: 1px solid rgb(132, 24, 24);
     padding: 0.3em;
     text-align: center;
     border-radius: 4px;
@@ -841,7 +753,7 @@ div.calculatorTitle {
 }
 
 div.calculatorInputs {
-    display: inline-table;
+    /* display: inline-table; */
 }
 
 div.calculatorInputGroup {
@@ -893,15 +805,7 @@ div.calculatorAnswer {
     font-size: 100%;
 }
 
-div#calculatorAnswer {
-    color: #333333;
-    background-color: #FFFFFF;
-    border: 1px solid #aaa;
-    border-radius: 4px;
-    margin: 0em -0.3em -0.3em -0.3em;
-    padding: 0.3em;
-    font-size: 100%;
-}
+
 
 div.table {
     display:inline-flex;
@@ -909,125 +813,15 @@ div.table {
     align-items: center;
 }
 
-div.caption {
-    display: table-caption;
-}
 
-div.row {
-    display: table-row;
-}
 
-div.cell {
-    display: table-cell;
-}
-
-div.commonTable {
-    text-align: left;
-   
-}
-
-div.commonTable div.cell {
-    padding: 4px;
-}
 @media screen and (max-width: 768px) {
     div.commonTable div.cell {
         padding-top: 10px;
         padding-bottom: 10px;
     }
 }
-div.commonTable div.headerCell {
-    text-align: center;
-    font-weight: bold;
-}
 
-fieldset div.commonTable {
-    margin: 0em auto 0em auto;
-}
-
-div.calculatorInputs div.commonTable .row .cell:first-child {
-    text-align: right;
-    width: 49%;
-}
-
-div.defaultTable {
-    margin: 1em auto 1em auto;
-}
-
-div.defaultTable div.cell {
-    padding: 4px 4px 10px 4px;
-}
-
-div.defaultTable div.headerCell {
-    background: #d9d9d9;
-    font-weight: bold;
-}
-
-.borderRight_1 {
-    border-right: 1px solid #666;
-}
-
-.borderBottom_1 {
-    border-bottom: 1px solid #666;
-}
-
-.border2top {
-    border-top: 2px solid #333;
-}
-
-div.simpleTable {
-    width: 99%;
-}
-
-div.simpleTable div.cell {
-    padding: 4px;
-}
-
-div.prettytable {
-    font-size: 0.9em;
-    margin-bottom: 1em;
-    margin-top: 1em;
-    background: #f9f9f9;
-    border: 1px #aaaaaa solid;
-}
-
-div.prettytable div.caption {
-    font-size: 1.1em;
-    font-weight: bold;
-    text-align: center;
-}
-
-div.prettytable div.headerCell {
-    background: #d9d9d9;
-    font-weight: bold;
-}
-
-div.prettytable div.cell {
-    border: 1px #aaaaaa solid;
-    padding: 0.4em;
-}
-
-div.prettytable div.row:hover {
-    background-color: #FFFFBB;
-    cursor: pointer;
-}
-
-div.centered {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-div.indexPage {
-    display: block;
-    margin-right: 1em;
-    margin-left: 2em;
-}
-
-p.tightindentDescription {
-    margin: -0.5em 0 1.25em 2.5em;
-    padding: 0;
-    font-style: italic;
-    color: #333;
-}
 
 @media only screen and (max-width: 726px) {
     div.indexPage, div.indexPage p {
@@ -1111,74 +905,26 @@ div.TextRight {
 }
 
 .btn {
-    display: inline-block;
-    zoom: 1;
-    line-height: normal;
-    white-space: nowrap;
-    vertical-align: middle;
-    text-align: center;
-    cursor: pointer;
-    -webkit-user-drag: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    height: 100%;
+    width:500px;
+    height:60px;
+    display: inline-table;
+    transition: 0.5s;
+    margin: 10px;
+    background-color: rgb(220, 237, 221);
+    color: rgb(22, 51, 25);
+    font-size: larger;
+}
+.btn:hover{
+    background-color: #000000; /* Green */
+    color: white;
 }
 
-.btn::-moz-focus-inner {
-    padding: 0;
-    border: 0;
-}
 
-.btn {
-    font-family: inherit;
-    font-size: 100%;
-    padding: 0.5em 1em;
-    color: #000;
-    border: 1px solid #999;
-    background-color: #f5f5f5;
-    text-decoration: none;
-    border-radius: 4px;
-}
 
-.btn:hover,
-.btn:focus {
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000', GradientType=0);
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(40%, rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0.10)));
-    background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.10));
-    background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.10));
-    background-image: -o-linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.10));
-    background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.10));
-}
 
-.btn:active {
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.20) inset;
-    border-color: #000 \9;
-}
 
-input.btn[disabled] {
-    color: #999;
-}
 
-textarea.get_link {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    color: #333333;
-    border: 1px solid #aaa;
-    border-radius: 4px;
-    font-size: 0.9em;
-    width: 100%;
-}
-
-.calc_error {
-    color: #cc3333;
-    max-width: 300px;
-    margin: 8px 5px;
-}
 
 footer {
     text-align: center;
@@ -1191,28 +937,7 @@ footer {
     }
 }
 
-#copyright {
-    color: #333333;
-    text-align: center;
-    padding-top: 4px;
-}
 
-#copyright a {
-    color: #333333;
-}
-
-#copyright a:hover {
-    color: #993333;
-}
-
-.MathJax_XX {
-    font-size: 2em;
-}
-
-div.ScreenWidthLessThan801 {
-    display: none;
-    text-align: center;
-}
 
 @media only screen and (max-width: 851px) {
     div.ScreenWidthLessThan801 {

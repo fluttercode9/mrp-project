@@ -38,7 +38,33 @@ function fillTable() {
         '.zapotrzebowanieNettoPN',
         '.planowaneZamówieniaPN',
         '.planowanePrzyjecieZamowienPN',
-        'czasRealizacjiPN')
+        'czasRealizacjiPN');
+    fillNaStanie(
+        'naStanieSiedzenie',
+        'wielkoscPartiiSiedzenie',
+        '.calkowiteZapotrzebowanieSiedzenie',
+        '.planowanePrzyjeciaSiedzenie',
+        '.przewidywaneNaStanieSiedzenie',
+        '.zapotrzebowanieNettoSiedzenie',
+        '.planowaneZamówieniaSiedzenie',
+        '.planowanePrzyjecieZamowienSiedzenie',
+        'czasRealizacjiSiedzenie');
+    fillNaStanie(
+        'naStanieTylnyStelaz',
+        'wielkoscPartiiTylnyStelaz',
+        '.calkowiteZapotrzebowanieTylnyStelaz',
+        '.planowanePrzyjeciaTylnyStelaz',
+        '.przewidywaneNaStanieTylnyStelaz',
+        '.zapotrzebowanieNettoTylnyStelaz',
+        '.planowaneZamówieniaTylnyStelaz',
+        '.planowanePrzyjecieZamowienTylnyStelaz',
+        'czasRealizacjiTylnyStelaz');
+
+    for (var i = 0; i < tablefields.length; i++) {
+        if (tablefields[i].innerHTML == "") {
+            tablefields[i].innerHTML = 'to-do';
+        }
+    }
 }
 
 // mysle ze o to chodzi w calkowitym zapotrzebowaniu ale nie wiem xD 
