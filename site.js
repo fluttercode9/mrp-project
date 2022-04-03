@@ -86,21 +86,21 @@ function fillNaStanie(
         //Pierwszy tydzien
         if (first_run == 0) {
             rowPlanowanePrzyjecie[i].innerHTML = 0;
-            rowPrzewidywaneNaStanie[i].innerHTML = naStanie.value;
+            rowPrzewidywaneNaStanie[i].innerHTML = naStanie.value - rowCalkowitegoZapotrzebowania[i].innerHTML;
             //Zapotrzebowanie netto                 
-            if (Number(rowPrzewidywaneNaStanie[i].innerHTML) < Number(rowCalkowitegoZapotrzebowania[i].innerHTML)) {
-                rowZapotrzebowanieNetto[i].innerHTML = Math.abs(rowCalkowitegoZapotrzebowania[i].innerHTML - rowPrzewidywaneNaStanie[i].innerHTML);
-            } else (
-                rowZapotrzebowanieNetto[i].innerHTML = 0
-            )
+            //if (Number(rowPrzewidywaneNaStanie[i].innerHTML) < Number(rowCalkowitegoZapotrzebowania[i].innerHTML)) {
+            //    rowZapotrzebowanieNetto[i].innerHTML = Math.abs(rowCalkowitegoZapotrzebowania[i].innerHTML - rowPrzewidywaneNaStanie[i].innerHTML);
+            //} else (
+            //    rowZapotrzebowanieNetto[i].innerHTML = 0
+            //)
             
-            first_run = 1;
-            continue
+            first_run = 1;            
         } //Nastpene tygodnie
         else {
             rowPlanowanePrzyjecie[i].innerHTML = 0;
             //Sprawdzić:            
-            rowPrzewidywaneNaStanie[i].innerHTML = rowPrzewidywaneNaStanie[i-1].innerHTML - rowCalkowitegoZapotrzebowania[i-1].innerHTML //+ rowPlanowanePrzyjecie[i].innerHTML + rowZapotrzebowanieNetto[i-1].innerHTML;
+            rowPrzewidywaneNaStanie[i].innerHTML = rowPrzewidywaneNaStanie[i-1].innerHTML + rowPlanowanePrzyjecie[i].innerHTML - rowCalkowitegoZapotrzebowania[i].innerHTML// rowPlanowanePrzyjecieZamowien[i].innerHTML;
+            rowZapotrzebowanieNetto
             console.log(`iteracja: ${i}`)
             console.log(`current_stan: ${rowPrzewidywaneNaStanie[i].innerHTML}`)
         }
@@ -108,10 +108,14 @@ function fillNaStanie(
             if (i >= czasRealizacji) {
                 ilosc_potrzebnych_partii = Math.ceil((rowPrzewidywaneNaStanie[i].innerHTML * -1)/wielkoscPartii);
                 console.log(`ilosc partii: ${ilosc_potrzebnych_partii}`);
-                rowPlanowanieZamowienia[i-1].innerHTML     = ilosc_potrzebnych_partii * wielkoscPartii;
+                rowPlanowanieZamowienia[i-czasRealizacji].innerHTML     = ilosc_potrzebnych_partii * wielkoscPartii;
                 rowPlanowanePrzyjecieZamowien[i].innerHTML = ilosc_potrzebnych_partii * wielkoscPartii;
+                console.log("ilosc potrzeb partii " + ilosc_potrzebnych_partii)
+                console.log("wielkoscPartii " + wielkoscPartii)
+                console.log("rowPrzewidywaneNaStanie[i].innerHTML" + rowPrzewidywaneNaStanie[i].innerHTML)
+                rowPrzewidywaneNaStanie[i].innerHTML = Number(rowPrzewidywaneNaStanie[i].innerHTML) + Number(rowPlanowanePrzyjecieZamowien[i].innerHTML); 
                 // console.log(rowPlanowanePrzyjecieZamowien[i].innerHTML);
-                //rowPrzewidywaneNaStanie[i].innerHTML = rowPlanowanePrzyjecieZamowien[i-1].innerHTML;
+                
             }
 
         }  
