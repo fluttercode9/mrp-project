@@ -40,6 +40,7 @@ div#wrapper {
 
 }
 
+
 @media screen and (max-width: 600px) {
     div#wrapper {
         margin: auto;
@@ -92,7 +93,7 @@ tr , td{
 
 td:hover{
     background-color: #86b686;
-    color: white;
+    color: rgb(5, 0, 0);
     font-size: 1.2em;
     padding: 8px;
 }
@@ -247,6 +248,9 @@ h1 {
     text-align: center;
     color: rgb(9, 56, 32);
     
+}
+h1:hover{
+    color: red;
 }
 
 h2 {
