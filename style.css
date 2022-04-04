@@ -35,8 +35,8 @@ body {
 div#wrapper {
     margin: auto;
     /* /* padding: 0px 0px 0px 0px; */
-    max-width: 1500px;
-    width:80%
+    max-width: 90%;
+    
 
 }
 
@@ -306,56 +306,8 @@ dt {
     font-style: italic;
 }
 
-dd {
-    color: #333;
-    background-color: inherit;
-}
 
-figure {
-}
 
-figure {
-    margin: 1em 40px;
-}
-
-fieldset {
-    border: 1px solid #999999;
-    margin: 0;
-    padding: 0.25em;
-}
-
-sub,
-sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-}
-
-sup {
-    top: -0.5em;
-}
-
-sub {
-    bottom: -0.25em;
-}
-
-hr {
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-    height: 0;
-}
-
-#basicCalculatorPop {
-    margin-right: 8px;
-    margin-top: 8px;
-}
-
-@media (max-width: 600px) {
-    #basicCalculatorPop {
-        display: none;
-    }
-}
 
 button,
 input,
@@ -496,32 +448,6 @@ p#title span.topCalculator {
 
 
 
-@media (min-width: 925px) {
-    img.followButton, img.shareButton {
-        height: 25px;
-        width: 25px;
-        margin: 4px 4px 0px 4px;
-    }
-}
-
-@media (max-width: 924px) {
-    img.followButton, img.shareButton {
-        height: 40px;
-        width: 40px;
-        margin: 4px 4px 0px 4px;
-    }
-}
-
-#bottomFollow {
-    display: none;
-}
-
-@media screen and (max-width: 525px) {
-    #bottomFollow {
-        display: block;
-        text-align: center;
-    }
-}
 
 div#breadcrumbs {
     margin: 10px 0px 10px 7px;
@@ -564,20 +490,7 @@ div#contentBlock p:first-of-type {
     margin-top: 0;
 }
 
-@media screen and (max-width: 600px) {
-    #calculatorBlock {
-        display: block;
-        margin: auto;
-        float: none;
-    }
 
-    div#contentBlock {
-        display: block;
-        margin: 10px auto;
-        float: none;
-        font-size: 100%;
-    }
-}
 
 /*
 CSS for ads begin
@@ -626,48 +539,9 @@ CSS for ads begin
 
 
 /* mobile and screens less than 601px wide */
-@media screen and (max-width: 600px) {
-    #Top {
-        display: block;
-        margin: 20px auto 20px auto;
-        text-align: center;
-        float: none;
-        width: 300px;
-        height: 250px;
-        overflow: hidden;
-    }
 
-    #LeftSidebar {
-        display: none;
-    }
 
-    #RightSidebar {
-        /* now positioned below the calculator */
-        clear: both;
-        display: block;
-        /* width: 300px; any width */
-        max-height: 280px;
-        margin: 20px auto 20px auto;
-        float: none;
-    }
 
-    #Bottom {
-        max-height: 280px;
-    }
-}
-
-/* tablet and screens less than 768px wide */
-@media screen and (max-width: 768px) {
-    #Video {
-        display: none;
-    }
-}
-
-@media print {
-    #Top, #LeftSidebar, #RightSidebar, #Bottom, #Video, #Sticky {
-        display: none;
-    }
-}
 
 /*
 CSS class for all in-page ads for the header ADVERTISEMENT
@@ -695,38 +569,7 @@ CSS class for all in-page ads for the header ADVERTISEMENT
     margin-left: -52px;
 }
 
-/* Sticky CSS Code - Start -*/
-/* Use style for sticky ad */
-    /* These IDs and Classes are set on divs by asc_prebid.js */
 
-
-
-
-
-
-
-@media only screen and (max-width: 768px) {
-    #btn-ad-close {
-            top: auto;
-            position: fixed;
-            right: 0px;
-            bottom: 50px;
-            margin: 0px;
-            background-color: #fff;
-            border-radius: 0;
-            border-bottom: 2px solid #fff;
-            border-right: 0;
-            border-top-left-radius: 10px;
-            color: #747474;
-    }
-}
-
-
-/* Sticky Code - End */
-
-/*
-CSS for ads end
-*/
 
 
 div#calculatorWrap {
@@ -819,25 +662,6 @@ div.table {
 
 
 
-@media screen and (max-width: 768px) {
-    div.commonTable div.cell {
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-}
-
-
-@media only screen and (max-width: 726px) {
-    div.indexPage, div.indexPage p {
-        margin-right: 0.75em;
-        margin-left: 0.75em;
-    }
-
-    div.indexPage p.tightindentDescription {
-        margin-left: 1.25em;
-    }
-}
-
 div.TextTextFit {
     overflow: hidden;
     border: 0px solid #999;
@@ -863,12 +687,7 @@ div.Text2Column {
     padding: 6px;
 }
 
-@media only screen and (max-width: 726px) {
-    div.Text2Column {
-        display: block;
-        width: 100%;
-    }
-}
+
 
 div.ImageTextWrap {
     clear: both;
@@ -890,22 +709,6 @@ div.TextRight {
     overflow: hidden;
     vertical-align: top;
     padding: 6px;
-}
-
-@media only screen and (max-width: 726px) {
-    div.ImageTextWrap, div.TextRight {
-        overflow: auto;
-    }
-
-    div.ImageLeft {
-        float: none;
-        text-align: center;
-        padding: 0;
-    }
-
-    figure {
-        margin: auto;
-    }
 }
 
 .btn {
@@ -935,90 +738,3 @@ footer {
     padding: 10px;
 }
 
-@media screen and (max-width: 600px) {
-    footer a {
-        display: block;
-    }
-}
-
-
-
-@media only screen and (max-width: 851px) {
-    div.ScreenWidthLessThan801 {
-        display: block;
-        margin-top: 2px;
-        margin-bottom: 8px;
-        text-align: center;
-    }
-}
-
-@media screen and (max-width: 425px) {
-    div#breadcrumbs div#lastBreadcrumb {
-        display: none;
-    }
-
-    h1 {
-        font-weight: bold;
-        font-size: 1em;
-    }
-}
-
-@media screen and (max-width: 525px) {
-    #headerRight {
-        display: none;
-    }
-
-    #headerLeft, #headerCenter {
-        display: block;
-        width: 100%;
-        max-width: 400px;
-    }
-}
-
-@media screen and (min-width: 525px) and (max-width: 760px) {
-    #headerRight {
-        display: table-cell;
-    }
-
-    #headerLeft, #headerCenter {
-        display: block;
-        width: 100%;
-        max-width: 400px;
-    }
-}
-
-@media screen and (min-width: 725px) and (max-width: 924px) {
-    #topNavRight {
-        _display: none;
-    }
-}
-
-@media screen and (min-width: 601px) {
-    form#TopCalculatorClearButton {
-        display: none;
-    }
-}
-
-@media (min-width: 890px) {
-}
-
-@media print {
-    #headerCenter, #headerRight {
-        display: none;
-    }
-}
-
-@media (min-width: 400px) {
-}
-
-@media (min-width: 550px) {
-}
-
-@media (min-width: 750px) {
-}
-
-@media (min-width: 1000px) {
-}
-
-@media (min-width: 1200px) {
-}
