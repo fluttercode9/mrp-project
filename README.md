@@ -1,4 +1,5 @@
 # Istota MRP
+## https://v-ie.uek.krakow.pl/~s215753/mrp/index.html
  Algorytm MRP łączy sporządzony harmonogram produkcji z
 zestawieniem materiałów niezbędnych do wytworzenia
 produktu, bada zapasy produkcyjne i ustala, które części i
