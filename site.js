@@ -192,6 +192,9 @@ function fillNaStanie(
                 rowPrzewidywaneNaStanie[i].innerHTML = parseInt(rowPrzewidywaneNaStanie[i].innerHTML) + parseInt(rowPlanowanePrzyjecieZamowien[i].innerHTML);
                 // console.log(rowPlanowanePrzyjecieZamowien[i].innerHTML);
 
+            } else {
+                rowPlanowanePrzyjecie[i].innerHTML = Math.abs(parseInt(rowPrzewidywaneNaStanie[i].innerHTML));
+                rowPrzewidywaneNaStanie[i].innerHTML = parseInt(rowPrzewidywaneNaStanie[i].innerHTML) + parseInt(rowPlanowanePrzyjecie[i].innerHTML);
             }
 
         }
