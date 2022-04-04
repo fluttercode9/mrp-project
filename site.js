@@ -1,10 +1,10 @@
 // To nie jest BOM, ale ok
 var BOM = {
-    'przednie nogi': 1,
+    'przednie nogi': 2,
     'siedzenie': 1,
     'tylny stelaz': 1,
     'oparcie': 1,
-    'tylne nogi': 1
+    'tylne nogi': 2
 }
 
 function fillTable() {
@@ -27,8 +27,6 @@ function fillTable() {
     fillCalkowiteZapotrzebowanie('naStaniePN', 'czasRealizacjiPN', 'wielkoscPartiiPN', 'przednie nogi', '.calkowiteZapotrzebowaniePN', produkcja_arr, czasRealizacjiGHP);
     fillCalkowiteZapotrzebowanie('naStanieSiedzenie', 'czasRealizacjiSiedzenie', 'wielkoscPartiiSiedzenie', 'siedzenie', '.calkowiteZapotrzebowanieSiedzenie', produkcja_arr, czasRealizacjiGHP);
     fillCalkowiteZapotrzebowanie('naStanieTylnyStelaz', 'czasRealizacjiTylnyStelaz', 'wielkoscPartiiTylnyStelaz', 'tylny stelaz', '.calkowiteZapotrzebowanieTylnyStelaz', produkcja_arr, czasRealizacjiGHP);
-    fillCalkowiteZapotrzebowanie('naStanieOparcie', 'czasRealizacjiOparcie', 'wielkoscPartiiOparcie', 'oparcie', '.calkowiteZapotrzebowanieOparcie', produkcja_arr, czasRealizacjiGHP, 2);
-    fillCalkowiteZapotrzebowanie('naStanieTylneNogi', 'czasRealizacjiTylneNogi', 'wielkoscPartiiTylneNogi', 'tylne nogi', '.calkowiteZapotrzebowanieTylneNogi', produkcja_arr, czasRealizacjiGHP, 2);
     fillNaStanie(
         'naStaniePN',
         'wielkoscPartiiPN',
@@ -59,10 +57,34 @@ function fillTable() {
         '.planowaneZamówieniaTylnyStelaz',
         '.planowanePrzyjecieZamowienTylnyStelaz',
         'czasRealizacjiTylnyStelaz');
+    
 
+    fillCalkowiteZapotrzebowanielvl2('naStanieOparcie', 'czasRealizacjiOparcie', 'wielkoscPartiiOparcie', 'oparcie', '.calkowiteZapotrzebowanieOparcie', 'planowanePrzyjeciaOparcie');
+    fillCalkowiteZapotrzebowanielvl2('naStanieTylneNogi', 'czasRealizacjiTylneNogi', 'wielkoscPartiiTylneNogi', 'tylne nogi', '.calkowiteZapotrzebowanieTylneNogi', 'planowanePrzyjeciaTylneNogi');
+
+        fillNaStanie(
+        'naStanieOparcie',
+        'wielkoscPartiiOparcie',
+        '.calkowiteZapotrzebowanieOparcie',
+        '.planowanePrzyjeciaOparcie',
+        '.przewidywaneNaStanieOparcie',
+        '.zapotrzebowanieNettoOparcie',
+        '.planowaneZamówieniaOparcie',
+        '.planowanePrzyjecieZamowienOparcie',
+        'czasRealizacjiOparcie');
+        fillNaStanie(
+            'naStanieTylneNogi',
+            'wielkoscPartiiTylneNogi',
+            '.calkowiteZapotrzebowanieTylneNogi',
+            '.planowanePrzyjeciaTylneNogi',
+            '.przewidywaneNaStanieTylneNogi',
+            '.zapotrzebowanieNettoTylneNogi',
+            '.planowaneZamówieniaTylneNogi',
+            '.planowanePrzyjecieZamowienTylneNogi',
+            'czasRealizacjiTylneNogi');
     for (var i = 0; i < tablefields.length; i++) {
         if (tablefields[i].innerHTML == "") {
-            tablefields[i].innerHTML = 'to-do';
+            tablefields[i].innerHTML = '0';
         }
     }
 }
@@ -84,13 +106,31 @@ function fillCalkowiteZapotrzebowanie(naStanieID, czasRealizacjiID, wielkoscPart
             if (i < czasRealizacjiGHP) { alert('brak funkcjonalności, przypadek wystartowania produkcji przed rozpoczeciem wszystkiego') }
             rowCalkowitegoZapotrzebowania[i].innerHTML = 0;
             rowCalkowitegoZapotrzebowania[i - czasRealizacjiGHP].innerHTML = zapotrzebowanie[i];
-
         }
         else {
             rowCalkowitegoZapotrzebowania[i].innerHTML = zapotrzebowanie[i];
 
         }
     }
+}
+function fillCalkowiteZapotrzebowanielvl2(naStanieID, czasRealizacjiID, wielkoscPartiiID, BOMpart, MRProwClassName, classPlanowanePrzyjecia) {
+
+    naStanie = document.getElementById(naStanieID).value;
+    czasRealizacji = document.getElementById(czasRealizacjiID).value;
+    wielkoscPartii = document.getElementById(wielkoscPartiiID).value;
+    var planowaneZamowieniaTylnyStelaz = document.querySelectorAll(".planowaneZamówieniaTylnyStelaz");
+    rowCalkowiteZapotrzebowanie = document.querySelectorAll(MRProwClassName);
+    czasRealizacjiTylnyStelaz = document.getElementById("czasRealizacjiTylnyStelaz").value;
+    planowanePrzyjecia = document.querySelectorAll(classPlanowanePrzyjecia);
+
+    for (var i = 0; i <= planowaneZamowieniaTylnyStelaz.length; i++) {
+        if (planowaneZamowieniaTylnyStelaz[i]){
+            if (planowaneZamowieniaTylnyStelaz[i].innerHTML==0) {rowCalkowiteZapotrzebowanie[i].innerHTML=0}
+            else {rowCalkowiteZapotrzebowanie[i].innerHTML = parseInt(planowaneZamowieniaTylnyStelaz[i].innerHTML) * BOM[BOMpart]};}
+    }
+    // rowCalkowitegoZapotrzebowania = document.querySelectorAll(MRProwClassName);
+
+ 
 }
 
 
