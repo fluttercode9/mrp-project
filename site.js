@@ -191,20 +191,30 @@ function fillNaStanie(
                 console.log("rowPrzewidywaneNaStanie[i].innerHTML" + rowPrzewidywaneNaStanie[i].innerHTML)
                 rowPrzewidywaneNaStanie[i].innerHTML = parseInt(rowPrzewidywaneNaStanie[i].innerHTML) + parseInt(rowPlanowanePrzyjecieZamowien[i].innerHTML);
                 // console.log(rowPlanowanePrzyjecieZamowien[i].innerHTML);
+                var ewentualneZapotrzebowanieNetto = rowCalkowitegoZapotrzebowania[i].innerHTML - rowPrzewidywaneNaStanie[i].innerHTML
+                if (ewentualneZapotrzebowanieNetto > 0) {
+                    rowZapotrzebowanieNetto[i].innerHTML = rowCalkowitegoZapotrzebowania[i].innerHTML - rowPrzewidywaneNaStanie[i].innerHTML
+                }
+                  
 
             } else {
                 rowPlanowanePrzyjecie[i].innerHTML = Math.abs(parseInt(rowPrzewidywaneNaStanie[i].innerHTML));
                 rowPrzewidywaneNaStanie[i].innerHTML = parseInt(rowPrzewidywaneNaStanie[i].innerHTML) + parseInt(rowPlanowanePrzyjecie[i].innerHTML);
+                rowZapotrzebowanieNetto[i].innerHTML = rowZapotrzebowanieNetto[i].innerHTML + rowPlanowanePrzyjecie[i].innerHTML
+                
+
             }
 
         }
+        //if (rowCalkowitegoZapotrzebowania[i].innerHTML > 0) {
+        //    rowZapotrzebowanieNetto[i].innerHTML = rowCalkowitegoZapotrzebowania[i].innerHTML - rowPrzewidywaneNaStanie[i].innerHTML;
+        //} else {
+        //    rowZapotrzebowanieNetto[i].innerHTML = ''
+        //}
+        
 
 
     }
-
-
-
-
 }
 
 
@@ -258,5 +268,39 @@ function fillExampleData() {
 
     })
 }
+
+function replaceZeroes() {
+    var tablefields = document.getElementsByClassName('c');
+    for (var i = 30; i < 50; i++) {
+        if (tablefields[i].innerHTML == "0") {
+            tablefields[i].innerHTML = '';
+        }
+    }
+    for (var i = 60; i < 110; i++) {
+        if (tablefields[i].innerHTML == "0") {
+            tablefields[i].innerHTML = '';
+        }
+    }
+    for (var i = 120; i < 170; i++) {
+        if (tablefields[i].innerHTML == "0") {
+            tablefields[i].innerHTML = '';
+        }
+    }
+    for (var i = 180; i < 230; i++) {
+        if (tablefields[i].innerHTML == "0") {
+            tablefields[i].innerHTML = '';
+        }
+    }
+    for (var i = 240; i < 290; i++) {
+        if (tablefields[i].innerHTML == "0") {
+            tablefields[i].innerHTML = '';
+        }
+    }
+    for (var i = 300; i < 330; i++) {
+        if (tablefields[i].innerHTML == "0") {
+            tablefields[i].innerHTML = '';
+        }
+    }
+} 
 
 window.onload = fillExampleData()

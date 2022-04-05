@@ -138,6 +138,9 @@
                             <input type="button" name="reset" value="Wyczyść" class="btn"
                                 onclick="resetCalculator(this.form);">
                         </div>
+                        <div>
+                            <input type="button" name="reset" value="Usuń zera" class="btn" onclick="replaceZeroes();">
+                        </div>
                         <div class="clearBoth"></div>
 
                         <input type="hidden" name="action" value="solve" />
@@ -155,8 +158,8 @@
                         createCalculatedTable('PN', 'Przednie nogi');
                         createCalculatedTable('Siedzenie', 'Siedzenie');
                         createCalculatedTable('TylnyStelaz', 'Tylny Stelaż');
-                        createCalculatedTable('TylneNogi', 'Tylne nogi(Tylny Stelaż)');
-                        createCalculatedTable('Oparcie', 'Oparcie(Tylny Stelaż)');
+                        createCalculatedTable('TylneNogi', 'Tylne nogi (Tylny Stelaż)');
+                        createCalculatedTable('Oparcie', 'Oparcie (Tylny Stelaż)');
                         buildGHPtable();
 
                     });
